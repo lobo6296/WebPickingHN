@@ -1,5 +1,5 @@
 <?php
-class ControllerReportbymovements extends Controller {
+class ControllerReportreturns extends Controller {
 	
 	public function download() {
 		$this->load->model('tool/export');
@@ -17,42 +17,27 @@ class ControllerReportbymovements extends Controller {
 		} else {
 			$filter_date_end = null;
 		}
-
-		if (isset($this->request->post['hwpacking'])) {
-			$filter_hwpacking = trim($this->request->post['hwpacking']," ");
-		} else {
-			$filter_hwpacking = null;
-		}
-
-		if (isset($this->request->post['hwartcod'])) {
+        if (isset($this->request->post['hwartcod'])) {
 			$filter_hwartcod = trim($this->request->post['hwartcod']," ");
 		} else {
 			$filter_hwartcod = null;
 		}
-
-		if (isset($this->request->post['sitio'])) {
-			$filter_sitio = $this->request->post['sitio'];
-		} else {
-			$filter_sitio = null;
-		}			
 		
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
-			'filter_date_end'	=> $filter_date_end,
-			'filter_hwpacking'  => $filter_hwpacking,
+            'filter_date_end'	=> $filter_date_end,
 			'filter_hwartcod'   => $filter_hwartcod,
-			'filter_sitio'      => $filter_sitio,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'tipo'              => $this->request->post['tipo'],
-			'titulo'            => 'Stock Report by Packing List',
-			'reporte'           => 'bymovements'
+			'titulo'            => 'Stock Report by Averange Occupancy',
+			'reporte'           => 'returns'
 		);
 		
 		  $this->model_tool_export->download($filter_data);	
 		 
 		  $url = '';
                                                      
-		 $this->response->redirect($this->url->link('report/bymovements', 'token=' . $this->session->data['token'] . $url, true));
+		 $this->response->redirect($this->url->link('report/returns', 'token=' . $this->session->data['token'] . $url, true));
 		}
 		$this->index();		
 	}
@@ -62,7 +47,7 @@ class ControllerReportbymovements extends Controller {
      $this->load->model('tool/pdf');
 	 
 	 $filter_data = array (
-	   'reporte' => 'bymovements'
+	   'reporte' => 'returns'
 	 );
      $this->model_tool_pdf->generarReporte($filter_data);
  
@@ -70,7 +55,7 @@ class ControllerReportbymovements extends Controller {
 	}
 	
 	public function index() {
-		$this->load->language('report/bymovements');
+		$this->load->language('report/returns');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -84,25 +69,13 @@ class ControllerReportbymovements extends Controller {
 			$filter_date_end = $this->request->get['filter_date_end'];
 		} else {
 			$filter_date_end = date('Y-m-d');
-		}
-
-		if (isset($this->request->get['filter_hwpacking'])) {
-			$filter_hwpacking = trim($this->request->get['filter_hwpacking']," ");
-		} else {
-			$filter_hwpacking = null;
-		}
-
-		if (isset($this->request->get['filter_hwartcod'])) {
+        }
+        
+        if (isset($this->request->get['filter_hwartcod'])) {
 			$filter_hwartcod = trim($this->request->get['filter_hwartcod']," ");
 		} else {
 			$filter_hwartcod = null;
 		}
-
-		if (isset($this->request->get['filter_sitio'])) {
-			$filter_sitio = $this->request->get['filter_sitio'];
-		} else {
-			$filter_sitio = null;
-		}		
 		
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
@@ -112,29 +85,19 @@ class ControllerReportbymovements extends Controller {
 
 		$url = '';
 		
-		
 		if (isset($this->request->get['filter_date_start'])) {
 			$url .= '&filter_date_start=' . $this->request->get['filter_date_start'];
 		}
 
 		if (isset($this->request->get['filter_date_end'])) {
 			$url .= '&filter_date_end=' . $this->request->get['filter_date_end'];
-		}
-
-		if (isset($this->request->get['filter_hwpacking'])) {
-			$url .= '&filter_hwpacking=' . $this->request->get['filter_hwpacking'];
-		}
-
-		if (isset($this->request->get['filter_hwartcod'])) {
+        }
+        
+        if (isset($this->request->get['filter_hwartcod'])) {
 			$url .= '&filter_hwartcod=' . $this->request->get['filter_hwartcod'];
-
 		}
-
-		if (isset($this->request->get['filter_sitio'])) {
-			$url .= '&filter_sitio=' . $this->request->get['filter_sitio'];
-		}		
 		
-		$data['pdf'] = $this->url->link('report/bymovements/pdf', 'token=' . $this->session->data['token'].$url, 'SSL');
+		$data['pdf'] = $this->url->link('report/returns/pdf', 'token=' . $this->session->data['token'].$url, 'SSL');
 		
 		if (isset($this->request->get['page'])) {
 			$url .= '&page=' . $this->request->get['page'];
@@ -149,7 +112,7 @@ class ControllerReportbymovements extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('report/bymovements', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('report/returns', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
 		$this->load->model('report/tigo');
@@ -158,31 +121,25 @@ class ControllerReportbymovements extends Controller {
 
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
-			'filter_date_end'	=> $filter_date_end,
-			'filter_hwpacking'  => $filter_hwpacking,
-			'filter_hwartcod'   => $filter_hwartcod,
-			'filter_sitio'      => $filter_sitio,
+            'filter_date_end'	=> $filter_date_end,
+            'filter_hwartcod'   => $filter_hwartcod,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'start'             => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit'             => $this->config->get('config_limit_admin')
 		);
 
-		$stock_total = $this->model_report_tigo->getTotalStockReport($filter_data);
+		$stock_total = $this->model_report_tigo->getTotalReturns($filter_data);
 
-		$results = $this->model_report_tigo->getStockReport($filter_data);
+		$results = $this->model_report_tigo->getReturns($filter_data);
 
 		foreach ($results as $result) {
 			$data['stock'][] = array(
-				'code'          => $result['CODE'],
-				'hwpacking'     => $result['HWPACKING'],
-				'hwcontract'    => $result['HWCONTRACT'],
-				'inbounddate'   => $result['INBOUNDDATE'],
-				'daysinventory' => $result['DAYSINVENTORY'],
-				'hwcaja'        => $result['HWCAJA'],
-				'hwartcod'      => $result['HWARTCOD'],
+				'hwartcod'		=> $result['HWARTCOD'],
 				'hwartdesc'     => $result['HWARTDESC'],
-				'hwserie'       => $result['HWSERIE'],
-				'hwunimed'      => $result['HWUNIMED'],
+				'hwcaja'    	=> $result['HWCAJA'],
+				'hwpacking'   	=> $result['HWPACKING'],
+				'hwserie' 		=> $result['HWSERIE'],
+				'hwfechaing'    => $result['HWFECHAING'],
 				'existencia'    => $result['EXISTENCIA'],
 				'disponible'    => $result['DISPONIBLE']
 			);
@@ -199,7 +156,7 @@ class ControllerReportbymovements extends Controller {
 		$data['column_hwpacking']     = $this->language->get('column_hwpacking');
 		$dsys['column_hwbodega']      = $this->language->get('column_hwbodega');
 		$data['column_hwcontract']    = $this->language->get('column_hwcontract');
-		$data['column_inbounddate']   = $this->language->get('column_inbounddate');
+		$data['column_fechaing']   	  = $this->language->get('column_fechaing');
 		$data['column_daysinventory'] = $this->language->get('column_daysinventory');
 		$data['column_hwestado']      = $this->language->get('column_hwestado');
 		$data['column_hwcaja']        = $this->language->get('column_hwcaja');
@@ -223,9 +180,9 @@ class ControllerReportbymovements extends Controller {
 		$data['button_excel']         = $this->language->get('button_excel');
 		$data['button_pdf']           = $this->language->get('button_pdf');
 		
-		$data['export'] = $this->url->link('report/bymovements/download', 'token=' . $this->session->data['token'], true);
+		$data['export'] = $this->url->link('report/returns/download', 'token=' . $this->session->data['token'], true);
 		
-		$data['excel'] = $this->url->link('report/bymovements/excel', 'token=' . $this->session->data['token'], 'SSL');
+		$data['excel'] = $this->url->link('report/returns/excel', 'token=' . $this->session->data['token'], 'SSL');
 		
 
 		$data['token'] = $this->session->data['token'];
@@ -266,7 +223,7 @@ class ControllerReportbymovements extends Controller {
 		$pagination->total = $stock_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('report/bymovements', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+		$pagination->url = $this->url->link('report/returns', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
 		$data['pagination'] = $pagination->render();
 
@@ -284,10 +241,10 @@ class ControllerReportbymovements extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
         /*
 		if ($pdf) {
-          $this->response->setOutput(pdf($this->load->view('report/bymovements.tpl', $data),$data));
+          $this->response->setOutput(pdf($this->load->view('report/returns.tpl', $data),$data));
 		} else {
 		*/	
-		  $this->response->setOutput($this->load->view('report/bymovements.tpl', $data));
+		  $this->response->setOutput($this->load->view('report/returns.tpl', $data));
 		/*
 		}
 		*/

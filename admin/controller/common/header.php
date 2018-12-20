@@ -42,7 +42,6 @@ class ControllerCommonHeader extends Controller {
 		$data['generalstockbycode']			= $this->url->link('report/generalstockbycode', 'token=' . $this->session->data['token'] , 'SSL');
 		$data['summaryofmovement']			= $this->url->link('report/summaryofmovement', 'token=' . $this->session->data['token'] , 'SSL');
 		$data['inboundbydate']				= $this->url->link('report/inboundbydate', 'token=' . $this->session->data['token'] , 'SSL');
-		$data['averangeoccupancy']			= $this->url->link('report/averangeoccupancy', 'token=' . $this->session->data['token'] , 'SSL');
 
 		if (!isset($this->request->get['token']) || !isset($this->session->data['token']) || ($this->request->get['token'] != $this->session->data['token'])) {
 			$data['logged'] = '';

@@ -383,7 +383,7 @@ function bybomnumber($workbook,$y,$param) {
 		  	$worksheet->setCellValue('F'.$i,'Totales');
 			$worksheet->setCellValue('G'.$i,$totExistencia);
 			$worksheet->setCellValue('H'.$i,$totDisponible);
-  }
+}
 
 function generarReporte($workbook,$y,$data) {
 	$util = New Util();
@@ -402,7 +402,35 @@ function generarReporte($workbook,$y,$data) {
 	$this->bypackinglist($workbook,$y,$data);	  
   } elseif ($data['reporte']=='bybomnumber') {
 	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bybomnumber') {
+	$this->bybomnumber($workbook,$y,$data);	  
   }	  
+
+
   $workbook->setActiveSheetIndex(0);	
 }	
 	

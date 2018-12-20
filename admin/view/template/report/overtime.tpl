@@ -73,7 +73,7 @@
                 <td class="text-right"><?php echo $column_hwartdesc; ?></td>
                 <td class="text-right"><?php echo $column_hwcaja; ?></td>
                 <td class="text-left"><?php echo $column_hwpacking; ?></td>
-				<td class="text-left"><?php echo $column_hwserie; ?></td>
+				        <td class="text-left"><?php echo $column_hwserie; ?></td>
                 <td class="text-right"><?php echo $column_fechaing; ?></td>
                 <td class="text-right"><?php echo $column_existencia; ?></td>
                 <td class="text-right"><?php echo $column_disponible; ?></td>
@@ -88,7 +88,7 @@
                 <td class="text-left"><?php echo $s['hwartdesc']; ?></td>
                 <td class="text-right"><?php echo $s['hwcaja']; ?></td>
                 <td class="text-left"><?php echo $s['hwpacking']; ?></td>             
-				<td class="text-left"><?php echo $s['hwserie']; ?></td>
+				        <td class="text-left"><?php echo $s['hwserie']; ?></td>
                 <td class="text-right"><?php echo $s['hwfechaing']; ?></td>
                 <td class="text-right"><?php echo $s['existencia']; ?></td>
                 <td class="text-right"><?php echo $s['disponible']; ?></td>
@@ -111,7 +111,7 @@
   </div>
   <script type="text/javascript"><!--
 $('#button-filter').on('click', function() {
-	url = 'index.php?route=report/bybomnumber&token=<?php echo $token; ?>';
+	url = 'index.php?route=report/damaged&token=<?php echo $token; ?>';
 	
 	var filter_date_start = $('input[name=\'filter_date_start\']').val();
 	
@@ -123,18 +123,6 @@ $('#button-filter').on('click', function() {
 	
 	if (filter_date_end) {
 		url += '&filter_date_end=' + encodeURIComponent(filter_date_end);
-	}
-		
-	var filter_sitio = $('select[name=\'filter_sitio\']').val();
-	
-	if (filter_sitio) {
-		url += '&filter_sitio=' + encodeURIComponent(filter_sitio);
-	}
-	
-	var filter_hwpacking = $('input[name=\'filter_hwpacking\']').val();
-	
-	if (filter_hwpacking) {
-		url += '&filter_hwpacking=' + encodeURIComponent(filter_hwpacking);
 	}
 	
 	var filter_hwartcod = $('input[name=\'filter_hwartcod\']').val();

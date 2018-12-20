@@ -93,43 +93,43 @@
 		
         <li>
 		    <a href="<?php echo $bydata; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $bydata; ?></span><?php echo "07. By Date"; ?></a></li>
+			<span class="label label-warning pull-right"></span><?php echo "07. By Date"; ?></a></li>
 
         <li>
 		    <a href="<?php echo $packinglist; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $packinglist; ?></span><?php echo "08. By Packing List"; ?></a></li>			
+			<span class="label label-warning pull-right"></span><?php echo "08. By Packing List"; ?></a></li>			
 		
         <li>
 		    <a href="<?php echo $bysite; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $bysite; ?></span><?php echo "09. By Site"; ?></a></li>
+			<span class="label label-warning pull-right"></span><?php echo "09. By Site"; ?></a></li>
 
         <li>
 		    <a href="<?php echo $bysiteindetailthemovement; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $bysiteindetailthemovement; ?></span><?php echo "10. By Site in Detail the Movement"; ?></a></li>			
+			<span class="label label-warning pull-right"></span><?php echo "10. By Site in Detail the Movement"; ?></a></li>			
 			
         <li class="divider"></li>
 
         <li>
 		    <a href="<?php echo $inbounds; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $inbounds; ?></span><?php echo "11. Inbounds"; ?></a></li>
+			<span class="label label-warning pull-right"></span><?php echo "11. Inbounds"; ?></a></li>
 		<li>
 		    <a href="<?php echo $outbounds; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $outbounds; ?></span><?php echo "12. Outbounds"; ?></a></li>
+			<span class="label label-warning pull-right"></span><?php echo "12. Outbounds"; ?></a></li>
 		<li>
 		    <a href="<?php echo $returns; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $returns; ?></span><?php echo "13. Returns"; ?></a></li>
+			<span class="label label-warning pull-right"></span><?php echo "13. Returns"; ?></a></li>
         <li>
 		    <a href="<?php echo $overtime; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $overtime; ?></span><?php echo "14. Overtime"; ?></a></li>
+			<span class="label label-warning pull-right"></span><?php echo "14. Overtime"; ?></a></li>
         <li>
 		    <a href="<?php echo $generalstockbycode; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $generalstockbycode; ?></span><?php echo "15. General Stock By Code"; ?></a></li>		
+			<span class="label label-warning pull-right"></span><?php echo "15. General Stock By Code"; ?></a></li>		
         <li>
 		    <a href="<?php echo $summaryofmovement; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $summaryofmovement; ?></span><?php echo "16. Summary of Movement"; ?></a></li>
+			<span class="label label-warning pull-right"></span><?php echo "16. Summary of Movement"; ?></a></li>
         <li>
 		    <a href="<?php echo $inboundbydate; ?>" style="display: block; overflow: auto;">
-			<span class="label label-warning pull-right"><?php echo $inboundbydate; ?></span><?php echo "17. Inbound by date"; ?></a></li>			
+			<span class="label label-warning pull-right"></span><?php echo "17. Inbound by date"; ?></a></li>			
        
       </ul>
     </li>
