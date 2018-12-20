@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA1CEF75-845E-C9CB-22B0-B575D028312E" name="testrun">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:47:49 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="testrun_id" id="4166CB4A-515D-D678-C063-F62A4633FB16">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:48:29 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_prueba" id="3B6A3909-AD60-10F0-C317-A6AD24FD5EFA">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:50:22 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="08BC58DA-E644-03E4-E3E8-244465C64741" referredColumn="A2B18557-408D-1FEC-C99D-9FF141B99E2B"/>
+</associations>
+</Column>
+<Column name="cod_escenario" id="8B598B6D-BEE4-A1E5-CF14-2666B732825C">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:50:22 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="08BC58DA-E644-03E4-E3E8-244465C64741" referredColumn="407664B8-F278-0952-6AEF-00391C9B2401"/>
+</associations>
+</Column>
+<Column name="tipo" id="B5933DBD-6542-3788-FC8A-87F76641D7B7">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:48:50 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_inicia" id="FB47E2DB-B55F-C62A-568B-57C92B12BB92">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:49:13 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_fin" id="2AFE3355-C374-D271-2B84-861FB681F5F7">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:49:24 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usuario" id="16778A0A-C984-96DE-5E83-8C2D22BDDC3E">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:49:51 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8248DC68-D8CC-77C1-2A35-950E10763B0B" name="testrun_PK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:50:02 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4166CB4A-515D-D678-C063-F62A4633FB16"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="228E564F-8CE1-3686-E919-8B3B1302CC36" name="testrun_escenario_prueba_FK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:50:22 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B598B6D-BEE4-A1E5-CF14-2666B732825C"/>
+<colUsage columnID="3B6A3909-AD60-10F0-C317-A6AD24FD5EFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

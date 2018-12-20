@@ -1,0 +1,271 @@
+<?php
+function getInfoAccreditation($data = array()) {
+   $query = $this->desa->query("select cod_acreditacion,nombre_acreditacion,cod_condicion,texto_comentario
+                                  from acreditacion
+                                 where activo = 'S'
+								   and sysdate between fecha_inicia and fecha_fin
+                                   and cod_acreditacion = ".(int)$data['[acreditacion]']);
+	return $query->rows;	
+}
+
+function getCondicionAcreditacion($data = array()) {
+   $query = $this->desa->query("select cod_condicion from acreditacion where cod_acreditacion = ".(int)$data['[acreditacion]']);
+   return $query->row['COD_CONDICION'];
+}
+
+function getNombreCondicion($condicion,$data) {
+   $db = $this->conectar($data[ambiente]);	
+   $query = $db->query("select nombre_condicion
+                                 from acreditacion_condicion
+                                where cod_condicion = ".(int)$condicion);
+   return $query->row['NOMBRE_CONDICION'];
+}
+
+function getDetalleCondicion($data = array()) {
+			   	$db = new DB('oracle'
+	                          , DB_HOSTNAME_PROD
+							  , DB_USERNAME_PROD
+							  , DB_PASSWORD_PROD
+							  , DB_DATABASE_PROD
+							  , DB_PORT_PROD);		
+	
+     $sqltxt ="select cod_condicion,cod_det_condicion,descripcion_condicion,valor_condicion,operador_logico,tipo_condicion,activa
+                 from acreditacion_condicion_det
+                where cod_condicion = ".(int)$data['filter_cod_condicion']." 
+                order by cod_det_condicion";
+
+	 switch ((int)$data['filter_endpoint']) {		 
+		 case 1: $query = $db->query($sqltxt);
+		         break;
+		 case 2: $query = $this->desa->query($sqltxt);
+		         break;
+		 case 3: $query = $this->desa->query($sqltxt);
+		         break;
+	 }
+   return $query->rows;
+}
+
+function getDetalleRespuesta($parametros) {
+   $sql = 	"select numero_corto||'('||cod_mensaje||'):'||mensaje mensaje
+                                  from detalle_respuesta
+                                 where fecha_hora>=to_date('".$parametros['fechai']."','yyyy-mm-dd hh24:mi:ss')
+								 order by fecha_hora";
+
+  $query = $this->desa->query($sql);
+   
+   return $query->rows;
+}
+
+function getDependencias($cod_condicion) {
+$sqltext="select co.objeto,co.llave,oc.columns_selected,oc.left_side
+  from testing.condiciones_objeto co
+      ,testing.objeto_consulta oc
+ where oc.objeto = co.objeto
+   and co.objeto not in ('WAP.ACREDITACION_CONDICION_DET')
+   and cod_condicion in (
+select cod_condicion
+  from testing.dependencias
+ where cod_condicion_hija = ".$cod_condicion."
+)
+union
+select co.objeto,co.llave,oc.columns_selected,oc.left_side
+  from testing.condiciones_objeto co
+      ,testing.objeto_consulta oc
+ where oc.objeto = co.objeto
+   and co.objeto not in ('WAP.ACREDITACION_CONDICION_DET','WAP.ACREDITACION_CONDICION')
+   and cod_condicion = ".$cod_condicion."
+order by 1";
+
+$query = $this->test->query($sqltext);
+
+foreach ($query->rows as $row) {
+	$sqltext = "select ".$row['COLUMNS_SELECTED']." valor"
+	          ."  from ".$row['OBJETO']
+			  ." where ".$row['LEFT_SIDE']." = '".$row['LLAVE']."'"; 
+			  
+	$q = $this->desa->query($sqltext);
+
+	foreach ($q->rows as $result) {
+			$valores[] = array(
+				'objeto' => $row['OBJETO'],
+				'llave'  => $row['LLAVE'],
+				'valor'  => $result['VALOR']
+			);
+	}
+}
+
+$resultado[] = array(
+				'num_rows' => $query->num_rows,
+				'datos'  => $valores
+			);
+
+return $resultado;
+}
+
+function getAllDetalleAcreditacion($acreditacion) {
+$sqltext="select 0 nivel
+       ,d.cod_regla
+       ,d.cod_acreditacion
+       ,a.nombre_acreditacion
+       ,d.cod_condicion
+       ,d.cod_regla correlativo
+       ,d.descripcion_regla
+       ,d.billetera_cos
+       ,d.tipo_regla
+       ,d.valor_billetera
+       ,d.cod_condicion
+ from acreditacion_regla d
+     ,acreditacion a
+where a.cod_acreditacion = d.cod_acreditacion
+  and a.cod_acreditacion = ".$acreditacion."
+  and tipo_regla != 30
+  and d.cod_condicion > 0
+union
+ select v.nivel
+       ,v.cod_regla
+       ,d.cod_acreditacion
+       ,a.nombre_acreditacion
+       ,v.condicion       
+       ,d.cod_regla
+       ,d.descripcion_regla
+       ,lpad(' ',2*(nivel-1))||d.billetera_cos
+       ,d.tipo_regla
+       ,d.valor_billetera
+       ,d.cod_condicion
+  from (
+select distinct level nivel,cod_regla,to_number(child) cod_acreditacion,cod_condicion condicion
+  from (
+  select null parent, cod_regla,to_char(cod_acreditacion) child,cod_condicion
+   from acreditacion_regla
+  where tipo_regla = 30
+    and cod_acreditacion = ".$acreditacion."
+   union
+  select to_char(cod_acreditacion),cod_regla,billetera_cos,cod_condicion
+    from acreditacion_regla
+   where tipo_regla = 30
+  )
+  where level>1
+  start with parent is null
+  connect by prior child = parent) v
+  ,acreditacion_regla d
+  ,acreditacion a
+  where a.cod_acreditacion = d.cod_acreditacion
+    and d.cod_acreditacion = v.cod_acreditacion
+    and v.condicion > 0
+  order by 2";	
+  $query = $this->desa->query($sqltext);
+  return $query->rows;	
+}
+
+function getCondicionesDependientes() {
+$sqltxt  = "select d.cod_condicion,a.nombre_condicion
+              from dependencias d
+                  ,acreditacion_condicion a
+             where a.cod_condicion = d.cod_condicion 
+               and d.cod_condicion_hija = 2510
+             order by 1";
+ 
+}
+
+function getAllDetalleCondicion($data = array()) {
+			   	$db = new DB('oracle'
+	                          , DB_HOSTNAME_PROD
+							  , DB_USERNAME_PROD
+							  , DB_PASSWORD_PROD
+							  , DB_DATABASE_PROD
+							  , DB_PORT_PROD);		
+$sqltxt  = "select 0 nivel,d.cod_det_condicion,d.cod_condicion,d.cod_det_condicion correlativo
+       ,d.valor_condicion,d.tipo_condicion,d.conector_logico,d.operador_logico,d.descripcion_condicion,activa
+  from acreditacion_condicion_det d
+where cod_condicion = ".(int)$data['filter_cod_condicion']."
+  and tipo_condicion != 14
+union
+ select v.nivel,v.cod_det_condicion,d.cod_condicion,d.cod_det_condicion,lpad(' ',2*(nivel-1))||d.valor_condicion,d.tipo_condicion,d.conector_logico,d.operador_logico
+      ,d.descripcion_condicion,v.activa
+  from (
+select distinct level nivel,cod_det_condicion,activa,to_number(child) cod_condicion
+  from (
+  select null parent, cod_det_condicion,activa,to_char(cod_condicion) child
+   from acreditacion_condicion_det
+  where tipo_condicion = 14
+    and cod_condicion = ".(int)$data['filter_cod_condicion']."
+   union
+  select to_char(cod_condicion),cod_det_condicion,activa,valor_condicion
+    from acreditacion_condicion_det
+   where tipo_condicion = 14  
+  )
+  where level>1
+  start with parent is null
+  connect by prior child = parent) v
+  ,acreditacion_condicion_det d
+  where d.cod_condicion = v.cod_condicion
+  order by 2";
+
+  	 switch ((int)$data['filter_endpoint']) {		 
+		 case 1: $query = $db->query($sqltxt);
+		         break;
+		 case 2: $query = $this->desa->query($sqltxt);
+		         break;
+		 case 3: $query = $this->desa->query($sqltxt);
+		         break;
+	 }
+  
+  return $query->rows;
+}
+
+function getPaquetesNavegacion($data = array()) {
+			   	$db = new DB('oracle'
+	                          , DB_HOSTNAME_PROD
+							  , DB_USERNAME_PROD
+							  , DB_PASSWORD_PROD
+							  , DB_DATABASE_PROD
+							  , DB_PORT_PROD);		
+$sqltext = "select id_paquete
+                  ,cp.cod_paquete
+				  ,cp.nombre_paquete
+				  ,cp.capacidad_mb
+                  ,fecha_compra fecha_compro
+      ,to_char(vp.fecha_compra,'dd-mm-yyyy hh24:mi:ss') fecha_compra
+	  ,to_char(vp.fecha_expira,'dd-mm-yyyy hh24:mi:ss') fecha_expira
+	  ,expirado,message_seq
+  from broadband.venta_paquete vp
+      ,broadband.config_paquete cp
+      ,wap.acreditacion a
+ where a.cod_acreditacion = cp.cod_acreditacion
+   and cp.cod_paquete = vp.cod_paquete
+   and fecha_compra >= trunc(sysdate)
+   and numero_celular = '502".$data['filter_numero_celular']."'
+order by 5 desc ";	
+
+  if (!empty($data['filter_numero_celular'])){	 
+   $query = $db->query($sqltext);
+   return $query->rows;
+  }
+  else 
+  {
+   return null;	  
+  }
+}
+
+function getPromocionesAdquiridas($data = array()) {
+   $query = $this->desa->query("select np.cod_promocion,nombre_promocion,to_char(fecha_hora,'dd/mm/yyyy hh24:mi:ss') fecha_hora
+                                  from numero_promocion np
+                                      ,promocion p
+                                 where np.cod_promocion = p.cod_promocion
+								   and fecha_hora >= trunc(sysdate)
+                                   and (np.numero_celular = '".$data['[numero_celular]']."' or np.numero_celular = '502".$data['[numero_celular]']."')
+                                 order by fecha_hora");
+   return $query->rows;
+}
+
+
+
+function getMensajes($data = array()) {
+   $query = $this->desa->query("select to_char(fecha_hora,'dd/mm/yyyy hh24:mi:ss')fecha_hora
+                                       ,numero_corto||'('||cod_mensaje||'):'||mensaje mensaje
+                                   from detalle_respuesta
+                                  where (numero_celular = '".$data['[numero_celular]']."' or numero_celular = '502".$data['[numero_celular]']."')
+                                  order by fecha_hora");
+   return $query->rows;
+}
+?>

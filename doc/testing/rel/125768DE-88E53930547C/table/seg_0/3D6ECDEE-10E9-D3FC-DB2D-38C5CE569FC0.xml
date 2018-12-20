@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3D6ECDEE-10E9-D3FC-DB2D-38C5CE569FC0" name="plan_prueba">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:46:20 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_plan" id="027115C8-A207-EED0-8790-2877F257BCDE">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:46:46 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="89D45497-EC19-7A30-9445-0CB2D920E26D" referredColumn="1B186A2A-67B2-B6CB-CCE1-D9DFB34A8B1B"/>
+</associations>
+</Column>
+<Column name="cod_prueba" id="CFD47047-DE9A-7870-F65B-A1F21ACEACBD">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:46:40 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A4839E7F-BFA8-A910-03D7-C53FFA5AE62B" referredColumn="39EF77E6-FA0E-DA8E-95A7-1754FDAC6CEB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="602CF2AF-0D31-15B7-EC4F-A2195D93DEAC" name="plan_prueba_PK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:47:14 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="027115C8-A207-EED0-8790-2877F257BCDE"/>
+<colUsage columnID="CFD47047-DE9A-7870-F65B-A1F21ACEACBD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="66F64D4A-06B8-105D-2802-840B9213478F" name="plan_prueba_pruebas_FK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:46:40 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFD47047-DE9A-7870-F65B-A1F21ACEACBD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6C0CA928-67DE-A147-585E-3A4453A3D061" name="plan_prueba_Plan_FK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:46:46 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="027115C8-A207-EED0-8790-2877F257BCDE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

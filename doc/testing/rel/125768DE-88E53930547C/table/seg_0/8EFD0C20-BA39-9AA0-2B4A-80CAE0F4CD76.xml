@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8EFD0C20-BA39-9AA0-2B4A-80CAE0F4CD76" name="escenario_prueba">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:28:21 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_prueba" id="A2B18557-408D-1FEC-C99D-9FF141B99E2B">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:30:49 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BFD6178F-6587-F13F-174A-FB3CF1DE3BD8" referredColumn="39EF77E6-FA0E-DA8E-95A7-1754FDAC6CEB"/>
+</associations>
+</Column>
+<Column name="cod_escenario" id="407664B8-F278-0952-6AEF-00391C9B2401">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:29:09 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="2612C86A-BA5D-E21A-16AF-4733A0425C37">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:29:32 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sort_order" id="3F01C1B0-6E93-EC3C-633A-DAE4700D8FB2">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:29:54 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4EBDF7C8-F4CE-F6D2-C689-0057E82432BB" name="escenario_prueba_PK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:29:32 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="407664B8-F278-0952-6AEF-00391C9B2401"/>
+<colUsage columnID="A2B18557-408D-1FEC-C99D-9FF141B99E2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DFD3563D-4CD4-F004-F689-5744FD46AC7E" name="escenario_prueba_pruebas_FK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:30:49 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2B18557-408D-1FEC-C99D-9FF141B99E2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

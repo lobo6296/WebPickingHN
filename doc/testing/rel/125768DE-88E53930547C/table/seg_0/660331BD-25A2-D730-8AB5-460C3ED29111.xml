@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="660331BD-25A2-D730-8AB5-460C3ED29111" name="plan_det">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:38:33 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_plan" id="2F11D847-0577-94ED-992D-6788B63E7335">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:41:11 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D32FEE0C-C5DF-FA02-4C6E-689F340EB04B" referredColumn="1B186A2A-67B2-B6CB-CCE1-D9DFB34A8B1B"/>
+</associations>
+</Column>
+<Column name="correlativo" id="207A10A3-CC92-DF6A-52A9-04DC21F55CAB">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:39:46 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="accion" id="F402A816-002D-CF94-AF53-0C27F9F29360">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:39:46 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="activo" id="99EBB012-49E2-1713-4948-7B12B52E86B6">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:40:00 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sort_order" id="D6F775C4-CE06-F80D-6175-DD5871BE4D7A">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:40:13 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7441B4DF-D5D1-D962-7F23-03B2DB2B99AC" name="plan_det_PK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:41:33 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F11D847-0577-94ED-992D-6788B63E7335"/>
+<colUsage columnID="207A10A3-CC92-DF6A-52A9-04DC21F55CAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FAAE5EBD-B549-B10D-EAD6-44335F16E8EB" name="plan_det_Plan_FK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:41:11 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F11D847-0577-94ED-992D-6788B63E7335"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="198F8E73-85AF-2923-FA1D-7874D8BC5AAA" name="testrun_det">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:51:19 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="testrun_id" id="49768E30-356E-8DAC-9C20-003A4A30B991">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:53:50 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="12E9F246-EB30-F876-74C1-CF7801003FCE" referredColumn="4166CB4A-515D-D678-C063-F62A4633FB16"/>
+</associations>
+</Column>
+<Column name="correlativo" id="CB36BD40-2150-8272-8E22-7AF47FD0483B">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:51:58 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="accion" id="9004BEB2-0EDB-3735-D745-2B0508BB2280">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:51:58 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="valor" id="FB7D2958-D3F7-7FE2-86E5-6B98BC3705DA">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:52:13 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_inicia" id="75B35A4D-B051-A48B-F6AA-098B89C16A25">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:52:25 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_fin" id="C3621CD7-C600-7710-0019-F448A34456C7">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:52:38 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2980B8F0-A24B-08D9-1526-31CC4D2EDE97" name="testrun_det_PK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:53:44 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB36BD40-2150-8272-8E22-7AF47FD0483B"/>
+<colUsage columnID="49768E30-356E-8DAC-9C20-003A4A30B991"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A92E6D50-41E6-7947-EAF6-68C947EE6BA7" name="testrun_det_testrun_FK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:53:50 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="49768E30-356E-8DAC-9C20-003A4A30B991"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

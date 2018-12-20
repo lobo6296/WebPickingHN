@@ -1,0 +1,2822 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vas="https://wap.tigo.com.gt/ws/SMSService" xmlns:vasobj="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+   <soap:Body>
+      <vas:GetAvailableProductsResponseParms>
+         <vas:arrayofproducts>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>345</productid>
+               <name>Habla ILIMITADO a un numero Tigo HOY</name>
+               <productprice>3.45</productprice>
+               <description>1 Numero Favorito por dia</description>
+               <additionaldescription>PRESTA FAVORITOQ3</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.45</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>3</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>299</productid>
+               <name>Suscripcion Internet+ de 75MB + WhatsApp chat sin gastar Megas</name>
+               <productprice>5</productprice>
+               <description>Suscripcion Internet+ de 75MB + 5SMS +  WhatsApp Chat sin gastar Megas</description>
+               <additionaldescription>Suscripcion Q5 - Internet Increible V2</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>41</productcategory>
+                     <categoryname>Suscripciones Internet+</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Status</parametername>
+                     <parametervalue>0</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia - 24hrs (cobro diario)</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>75</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>5</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Saldo Promo - Primera Suscripcion</description>
+                     <units>Q</units>
+                     <amount>10</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Chat sin gastar tus megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>300</productid>
+               <name>Suscripcion Internet+ de 150MB + WhatsApp chat sin gastar Megas</name>
+               <productprice>8</productprice>
+               <description>Suscripcion Internet+ de 150MB + 8SMS +  WhatsApp Chat sin gastar Megas</description>
+               <additionaldescription>Suscripcion Q8 - Internet Increible V2</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>41</productcategory>
+                     <categoryname>Suscripciones Internet+</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Status</parametername>
+                     <parametervalue>0</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia - 24hrs (cobro diario)</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>150</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>8</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Saldo Promo - Primera Suscripcion</description>
+                     <units>Q</units>
+                     <amount>16</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Chat sin gastar tus megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>301</productid>
+               <name>Suscripcion Internet+ de 300MB + WhatsApp chat sin gastar Megas</name>
+               <productprice>10</productprice>
+               <description>Suscripcion Internet+ de 300MB + 10SMS +  WhatsApp Chat sin gastar Megas</description>
+               <additionaldescription>Suscripcion Q10 - Internet Increible V2</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>41</productcategory>
+                     <categoryname>Suscripciones Internet+</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Status</parametername>
+                     <parametervalue>0</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia - 24hrs (cobro diario)</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>300</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>10</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Saldo Promo - Primera Suscripcion</description>
+                     <units>Q</units>
+                     <amount>20</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Chat sin gastar tus megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>339</productid>
+               <name>PLANVIP - Habla y mensajea ILIMITADO a otros Tigo + 50MB diarios</name>
+               <productprice>10</productprice>
+               <description>6 hrs Tigo+500SMS por Q10 (Adquierelo a Q5 activando una suscripcion de Internet+ de Q10)</description>
+               <additionaldescription>VIP Q10</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>43</productcategory>
+                     <categoryname>Ilimitados</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>Hasta</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Status</parametername>
+                     <parametervalue>0</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>hoy a la medianoche (cobro diario)</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes diarios</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>50</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>340</productid>
+               <name>Habla y mensajea ILIMITADO a otros Tigo + 50MB diarios</name>
+               <productprice>11.5</productprice>
+               <description>6 hrs Tigo+500SMS por Q5.75 al mantener tu suscripcion de Internet de Q10 activa</description>
+               <additionaldescription>Lendme VIP Q10-Q5</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.50</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>10</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>190</productid>
+               <name>6 horas a Tigo + 500 sms GRATIS</name>
+               <productprice>0</productprice>
+               <description>6 horas a Tigo + 500 sms GRATIS</description>
+               <additionaldescription>PAQUETIGO-VIP_BONO_TSA</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Hasta las 23:59:59</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a Tigo</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>191</productid>
+               <name>100 MB de Internet GRATIS</name>
+               <productprice>0</productprice>
+               <description>100 MB de Internet GRATIS</description>
+               <additionaldescription>100 MB de Internet GRATIS</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>100</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>361</productid>
+               <name>Dia 75MB + WhatsApp Chat sin gastar Megas</name>
+               <productprice>5</productprice>
+               <description>Dia 75MB + WhatsApp Chat sin gastar Megas</description>
+               <additionaldescription>HANDSET-005-WADU</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>75</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Chat sin gastar tus megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>362</productid>
+               <name>2 Dias 250MB + WhatsApp Chat sin gastar Megas</name>
+               <productprice>10</productprice>
+               <description>2 Dias 250MB + WhatsApp Chat sin gastar Megas</description>
+               <additionaldescription>HANDSET-010-2DIAS-WADU</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>2</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>250</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Chat sin gastar tus megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>363</productid>
+               <name>1 Dia 800MB + WhatsApp y Duolingo ILIMITADOS</name>
+               <productprice>14.99</productprice>
+               <description>Dia 800MB + WhatsApp y Duolingo ILIMITADOS</description>
+               <additionaldescription>HANDSET-015-WADU</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>800</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>364</productid>
+               <name>3 Dias 400MB + WhatsApp y Duolingo ILIMITADOS</name>
+               <productprice>15</productprice>
+               <description>3 Dias 400MB + WhatsApp y Duolingo ILIMITADOS</description>
+               <additionaldescription>HANDSET-3DIAS-WADU</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>3</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>400</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>365</productid>
+               <name>Semana 800MB + Facebook, WhatsApp y Duolingo ILIMITADOS</name>
+               <productprice>30</productprice>
+               <description>Semana 800MB + Facebook, WhatsApp y Duolingo ILIMITADOS</description>
+               <additionaldescription>HANDSET-SEMANA-WADUFB</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Semana</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>800</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Facebook Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>366</productid>
+               <name>15 Dias 1.5GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</name>
+               <productprice>60</productprice>
+               <description>15 Dias 1.5GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</description>
+               <additionaldescription>HANDSET-15DIAS-WADUFB</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>15</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>1536</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Facebook Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Deezer sin gastar tus Megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>367</productid>
+               <name>Mes 2GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</name>
+               <productprice>99</productprice>
+               <description>Mes 2GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</description>
+               <additionaldescription>HANDSET-MESSOCIAL-WADUFB</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Mes</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>2048</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Facebook Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Deezer sin gastar tus Megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>368</productid>
+               <name>Mes 4GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</name>
+               <productprice>199</productprice>
+               <description>Mes 4GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</description>
+               <additionaldescription>HANDSET-AVANZADO-WADUFB</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Mes</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>4096</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Facebook Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Deezer sin gastar tus Megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>369</productid>
+               <name>Mes 8GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</name>
+               <productprice>299</productprice>
+               <description>Mes 8GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</description>
+               <additionaldescription>HANDSET-PREMIUM-WADUFB</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Mes</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>8192</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Facebook Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Deezer sin gastar tus Megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>370</productid>
+               <name>Mes 20GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</name>
+               <productprice>499</productprice>
+               <description>Mes 20GB + Facebook, WhatsApp y Duolingo ILIMITADOS + Deezer sin gastar tus MB</description>
+               <additionaldescription>HANDSET-FULL-WADUFB</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>upselloption</parametername>
+                     <parametervalue>341</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Mes</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>20480</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Facebook Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>WhatsApp Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Duolingo Ilimitado</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Deezer sin gastar tus Megas</description>
+                     <units>App-Pass</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>46</productid>
+               <name>DUO - 100 SMS para USA + Guate + 100 MB</name>
+               <productprice>10</productprice>
+               <description>100 SMS para USA + Guate + 100 MB</description>
+               <additionaldescription>DUO</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>14</productcategory>
+                     <categoryname>BUNDLE</categoryname>
+                     <categorydescription>COMBOS DE SERVICIOS (voz, SMS, datos regularmente)</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>38</productcategory>
+                     <categoryname>Sin Limites</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Hasta las 23:59:59</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>100</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a USA y Guate</description>
+                     <units>SMS</units>
+                     <amount>100</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>130</productid>
+               <name>FAN20 - 20 SMS locales</name>
+               <productprice>3</productprice>
+               <description>20 SMS locales</description>
+               <additionaldescription>FAN20</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>3</productcategory>
+                     <categoryname>SMS</categoryname>
+                     <categorydescription>Paquetes de mensajes de texto</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>42</productcategory>
+                     <categoryname>SMS</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>hasta</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>manana a medianoche</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Mensajes Locales</description>
+                     <units>SMS</units>
+                     <amount>20</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>131</productid>
+               <name>FAN100 - 100 SMS locales y a USA</name>
+               <productprice>5</productprice>
+               <description>100 SMS locales y a USA</description>
+               <additionaldescription>FAN100</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>3</productcategory>
+                     <categoryname>SMS</categoryname>
+                     <categorydescription>Paquetes de mensajes de texto</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>42</productcategory>
+                     <categoryname>SMS</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>hasta</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>manana a medianoche</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Mensajes a USA y Guate</description>
+                     <units>SMS</units>
+                     <amount>100</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>170</productid>
+               <name>TODOS2 - 5 mins para llamar a USA y toda Guate por Q2</name>
+               <productprice>2</productprice>
+               <description>5 mins para llamar a USA y toda Guate por Q2</description>
+               <additionaldescription>TODOS2</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>44</productcategory>
+                     <categoryname>Local y USA</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Hasta las 23:59:59</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>300</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>325</productid>
+               <name>TIGO5 - 25 mins y 25 sms para llamar y mensajear a otros TIGO</name>
+               <productprice>5</productprice>
+               <description>25 mins + 25 SMS para llamar a otros TIGO por Q5</description>
+               <additionaldescription>TIGO5</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>45</productcategory>
+                     <categoryname>Tigo a Tigo</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Hasta las 23:59:59</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>1500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a Tigo</description>
+                     <units>SMS</units>
+                     <amount>25</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>326</productid>
+               <name>TODOS5 - 15 mins y 15 sms para llamar y mensajear a USA y toda Guate</name>
+               <productprice>5</productprice>
+               <description>15 mins + 15 SMS para llamar y mensajear a USA por Q5</description>
+               <additionaldescription>TODOS5</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>44</productcategory>
+                     <categoryname>Local y USA</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Hasta las 23:59:59</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>900</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a USA y Guate</description>
+                     <units>SMS</units>
+                     <amount>15</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>327</productid>
+               <name>TIGO10 - 60 mins y 60 sms para llamar y mensajear a otros TIGO y USA</name>
+               <productprice>10</productprice>
+               <description>60 mins + 60 SMS para llamar y mensajear a otros TIGO por Q10</description>
+               <additionaldescription>TIGO10</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>45</productcategory>
+                     <categoryname>Tigo a Tigo</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>2</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo y USA</description>
+                     <units>SEGUNDOS</units>
+                     <amount>3600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a Tigo y USA</description>
+                     <units>SMS</units>
+                     <amount>60</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>328</productid>
+               <name>TODOS10 - 30 mins y 30 sms para llamar y mensajear a USA y toda Guate</name>
+               <productprice>10</productprice>
+               <description>30 mins + 30 SMS para llamar y mensajear a otros TIGO por Q10</description>
+               <additionaldescription>TODOS10</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>44</productcategory>
+                     <categoryname>Local y USA</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>2</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>1800</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a USA y Guate</description>
+                     <units>SMS</units>
+                     <amount>30</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>330</productid>
+               <name>TIGO15 - 90 mins y 90 sms para llamar y mensajear a otros TIGO</name>
+               <productprice>15</productprice>
+               <description>90 mins + 90 SMS para llamar y mensajear a otros TIGO por Q15</description>
+               <additionaldescription>TIGO15</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>45</productcategory>
+                     <categoryname>Tigo a Tigo</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>3</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>5400</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a Tigo</description>
+                     <units>SMS</units>
+                     <amount>90</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>331</productid>
+               <name>TODOS15 - 50 mins y 50 sms para llamar y mensajear a USA y toda Guate</name>
+               <productprice>15</productprice>
+               <description>50 mins + 50 SMS para hablar a otros Tigo por Q10</description>
+               <additionaldescription>TODOS15</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>44</productcategory>
+                     <categoryname>Local y USA</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>3</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>3000</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes a USA y Guate</description>
+                     <units>SMS</units>
+                     <amount>50</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>349</productid>
+               <name>VIP1 - Habla y mensajea ILIMITADO a otros Tigo + 50MB por 1 dia</name>
+               <productprice>10</productprice>
+               <description>6 horas a otros Tigo + 500 SMS + 50 MB por Q10</description>
+               <additionaldescription>VIP1</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>43</productcategory>
+                     <categoryname>Ilimitados</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>50</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>350</productid>
+               <name>VIP3 - Habla y mensajea ILIMITADO a otros Tigo + 150MB de Internet</name>
+               <productprice>25</productprice>
+               <description>ILIMITADO a otros Tigo + 150MB de Internet por Q25 para 3 Dias</description>
+               <additionaldescription>VIP3</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>43</productcategory>
+                     <categoryname>Ilimitados</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>3</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>150</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>353</productid>
+               <name>VIP30 - Habla y mensajea ILIMITADO a otros Tigo + 1.5GB de Internet</name>
+               <productprice>199</productprice>
+               <description>Habla y mensajea ILIMITADO a otros Tigo + 1.5GB de Internet para 30 dias</description>
+               <additionaldescription>PLAN-VIP30</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>43</productcategory>
+                     <categoryname>Ilimitados</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>30</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>1536</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>354</productid>
+               <name>VIPTODOS - Habla y mensajea ILIMITADO a otros Tigo + 3,000 min Locales/USA + 4GB</name>
+               <productprice>299</productprice>
+               <description>Habla y Mensajea ILIMITADO a otros TIGO+3,000 minutos Locales/USA+4GB para 30 d?as por Q299</description>
+               <additionaldescription>PLAN-VIPUSA</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>43</productcategory>
+                     <categoryname>Ilimitados</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>30</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Minutos Locales/USA</description>
+                     <units>SEGUNDOS</units>
+                     <amount>180000</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>4096</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>355</productid>
+               <name>VIP7 - Habla y  mensajea ILIMITADO a otros TIGO + 250MB</name>
+               <productprice>50</productprice>
+               <description>Habla y  mensajea ILIMITADO a otros TIGO + 250MB para 7 dias por Q50</description>
+               <additionaldescription>PLAN-VIP7</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>43</productcategory>
+                     <categoryname>Ilimitados</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>7</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>250</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>356</productid>
+               <name>VIP15 - Habla y mensajea ILIMITADO a otros TIGO + 500MB</name>
+               <productprice>99</productprice>
+               <description>Habla y mensajea ILIMITADO a otros TIGO + 500MB para 15 dias por Q99</description>
+               <additionaldescription>PLAN-VIP15</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>2</productcategory>
+                     <categoryname>VOZ</categoryname>
+                     <categorydescription>Paquetes de voz</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>43</productcategory>
+                     <categoryname>Ilimitados</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>15</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>dias</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a Tigo</description>
+                     <units>SEGUNDOS</units>
+                     <amount>21600</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>500</amount>
+                  </Resource>
+                  <Resource>
+                     <description>Internet</description>
+                     <units>Mbytes</units>
+                     <amount>500</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>129</productid>
+               <name>FAN5 - 5 SMS locales</name>
+               <productprice>1</productprice>
+               <description>5 SMS locales</description>
+               <additionaldescription>FAN5</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>3</productcategory>
+                     <categoryname>SMS</categoryname>
+                     <categorydescription>Paquetes de mensajes de texto</categorydescription>
+                     <categorylevel>1</categorylevel>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>42</productcategory>
+                     <categoryname>SMS</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>hasta</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>manana a medianoche</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Mensajes Locales</description>
+                     <units>SMS</units>
+                     <amount>5</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>185</productid>
+               <name>Tigo te Presta Q4 de Saldo Principal</name>
+               <productprice>4.65</productprice>
+               <description>Tigo te Presta Q4 de Saldo Principal</description>
+               <additionaldescription>PRESTA</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.65</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>SALDO</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>BALANCE</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>4</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Saldo Principal</description>
+                     <units>Q</units>
+                     <amount>4</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>186</productid>
+               <name>Llamada de Emergencia - 80 segundos a USA y toda Guate</name>
+               <productprice>2.55</productprice>
+               <description>Llamada de Emergencia - 80 segundos a USA y toda Guate</description>
+               <additionaldescription>LLAMA</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>EMERGENCY</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>2.55</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>4800</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>187</productid>
+               <name>1 Mensajito de Emergencia</name>
+               <productprice>.8</productprice>
+               <description>1 Mensajito de Emergencia</description>
+               <additionaldescription>SMS</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.7</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>SMS</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>EMERGENCY</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>0</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Mensajes</description>
+                     <units>SMS</units>
+                     <amount>1</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>215</productid>
+               <name>100 SMS locales</name>
+               <productprice>6.85</productprice>
+               <description>100 SMS locales</description>
+               <additionaldescription>FAN100</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.35</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>SMS</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>PACKAGE</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>5.5</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Mensajes Locales</description>
+                     <units>SMS</units>
+                     <amount>100</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>216</productid>
+               <name>20 SMS locales</name>
+               <productprice>3.99</productprice>
+               <description>20 SMS locales</description>
+               <additionaldescription>FAN20</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.74</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>SMS</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>PACKAGE</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>3.25</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Mensajes Locales</description>
+                     <units>SMS</units>
+                     <amount>20</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>230</productid>
+               <name>Suscripcion 5 mins para llamar a USA y toda Guate</name>
+               <productprice>2.4</productprice>
+               <description>Suscripcion 5 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>SIEMPRE2</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.4</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>SUBSCRIPTION</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>2</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>300</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>231</productid>
+               <name>Suscripcion 10 mins para llamar a USA y toda Guate</name>
+               <productprice>4.7</productprice>
+               <description>Suscripcion 10 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>SIEMPRE4</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.8</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>SUBSCRIPTION</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>3.9</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>600</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>235</productid>
+               <name>Suscripcion 20 mins para llamar a USA y toda Guate</name>
+               <productprice>9</productprice>
+               <description>Suscripcion 20 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>SIEMPRE7</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.5</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>SUBSCRIPTION</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>7.5</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>1200</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>237</productid>
+               <name>Suscripcion 25 mins para llamar a USA y toda Guate</name>
+               <productprice>10.8</productprice>
+               <description>Suscripcion 25 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>SIEMPRE9</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.8</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>SUBSCRIPTION</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>9</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>1500</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>241</productid>
+               <name>5 mins para llamar a USA y toda Guate</name>
+               <productprice>2.3</productprice>
+               <description>5 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>TODOS2</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.3</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>PACKAGE</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>2</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>300</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>243</productid>
+               <name>10 mins para llamar a USA y toda Guate</name>
+               <productprice>5.1</productprice>
+               <description>10 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>TODOS4</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.85</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>PACKAGE</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>4.25</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>600</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>246</productid>
+               <name>20 mins para llamar a USA y toda Guate</name>
+               <productprice>9.6</productprice>
+               <description>20 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>TODOS8</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.6</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>PACKAGE</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>8</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>1200</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>247</productid>
+               <name>25 mins para llamar a USA y toda Guate</name>
+               <productprice>11.4</productprice>
+               <description>25 mins para llamar a USA y toda Guate</description>
+               <additionaldescription>TODOS9</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.9</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>PACKAGE</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>9.5</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources>
+                  <Resource>
+                     <description>Minutos a USA y Guate</description>
+                     <units>SEGUNDOS</units>
+                     <amount>1500</amount>
+                  </Resource>
+               </vas:arrayofresources>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>332</productid>
+               <name>25 Mins Nac + 25 SMS Nac</name>
+               <productprice>5.75</productprice>
+               <description>25 Mins Nac + 25 SMS Nac</description>
+               <additionaldescription>TIGO5</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.75</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>5</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>333</productid>
+               <name>15 Mins + 15 SMS USA</name>
+               <productprice>5.75</productprice>
+               <description>15 Mins + 15 SMS USA</description>
+               <additionaldescription>TODOS5</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>0.75</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>5</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>334</productid>
+               <name>60 Mins + 60 SMS a otros TIGO</name>
+               <productprice>11.5</productprice>
+               <description>60 Mins + 60 SMS a otros TIGO</description>
+               <additionaldescription>TIGO10</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.50</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>10</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>335</productid>
+               <name>30 Mins + 30 SMS a USA</name>
+               <productprice>11.5</productprice>
+               <description>30 Mins + 30 SMS a USA</description>
+               <additionaldescription>TODOS10</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.50</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>10</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>337</productid>
+               <name>90 Mins + 90 SMS a otros TIGO</name>
+               <productprice>17.25</productprice>
+               <description>90 Mins + 90 SMS a otros TIGO</description>
+               <additionaldescription>TIGO15</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>2.25</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>15</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>338</productid>
+               <name>50 Mins + 50 SMS</name>
+               <productprice>17.25</productprice>
+               <description>50 Mins + 50 SMS</description>
+               <additionaldescription>TODOS15</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>2.25</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>15</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>351</productid>
+               <name>Habla y mensajea ILIMITADO a otros Tigo + 50MB</name>
+               <productprice>11.5</productprice>
+               <description>Prestamo ILIMITADO a otros Tigo + 50MB - Q10</description>
+               <additionaldescription>VIP1 lendme</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>1.50</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>10</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>352</productid>
+               <name>Habla y mensajea ILIMITADO a otros Tigo + 150MB de Internet</name>
+               <productprice>28.75</productprice>
+               <description>Prestamo ILIMITADO a otros Tigo + 150 MB</description>
+               <additionaldescription>VIP3 lendme</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>17</productcategory>
+                     <categoryname>PRESTAMO</categoryname>
+                     <categorydescription>Prestamos</categorydescription>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor comision</parametername>
+                     <parametervalue>3.75</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Categoria Producto</parametername>
+                     <parametervalue>VOZ</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo Producto</parametername>
+                     <parametervalue>LMP</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Valor prestamo</parametername>
+                     <parametervalue>25</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+            <Product xmlns="https://wap.tigo.com.gt/ws/SMSServiceDataObjects">
+               <productid>377</productid>
+               <name>Dia 150MB</name>
+               <productprice>8</productprice>
+               <description>Dia 150MB</description>
+               <additionaldescription>HANDSET-Q8II-VAR</additionaldescription>
+               <vas:arrayofproductcategories>
+                  <ProductCategory>
+                     <productcategory>1</productcategory>
+                     <categoryname>INTERNET</categoryname>
+                     <categorydescription>Paquetes de datos</categorydescription>
+                  </ProductCategory>
+                  <ProductCategory>
+                     <productcategory>40</productcategory>
+                     <categoryname>Paquetigos de Internet</categoryname>
+                     <categorydescription>null</categorydescription>
+                     <categorylevel>2</categorylevel>
+                  </ProductCategory>
+               </vas:arrayofproductcategories>
+               <vas:arrayofparameters>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Duracion</parametername>
+                     <parametervalue>1</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de duracion</parametername>
+                     <parametervalue>Dia</parametervalue>
+                  </Parameter>
+                  <Parameter>
+                     <parameterid>1</parameterid>
+                     <parametername>Tipo de paquete</parametername>
+                     <parametervalue>Paquete</parametervalue>
+                  </Parameter>
+               </vas:arrayofparameters>
+               <vas:arrayofresources/>
+            </Product>
+         </vas:arrayofproducts>
+         <vas:response>0</vas:response>
+         <vas:message>57 found</vas:message>
+         <vas:transactionid>Testing2017-02-10T05:04:52</vas:transactionid>
+      </vas:GetAvailableProductsResponseParms>
+   </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="testing" id="35584E94-11C4-E392-BAC1-97786C85BEA8" version="3.5">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-08-16 15:09:16 UTC</createdTime>
+<ownerDesignName>Testing</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>35584E94-11C4-E392-BAC1-97786C85BEA8</designId>
+</OSDM_Design>

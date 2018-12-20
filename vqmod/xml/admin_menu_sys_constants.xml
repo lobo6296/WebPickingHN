@@ -1,0 +1,16 @@
+<modification>
+
+	<id>Add admin menu item - System Constants and Globals</id>
+	<version>1</version>
+	<vqmver>2</vqmver>
+	<author>torontoemporium dot com</author>
+	
+	<note>Edit the next line if you have changed your store ADMIN directory.  Replace "/admin/" with your new ADMIN directory name.</note>
+	
+	<file name="/admin/view/template/common/header.tpl">
+		<operation error="skip"><search position="after"><![CDATA[<li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>]]></search>
+			<add><![CDATA[<li><a href="<?php echo $this->url->link('tool/var_info', 'token=' . $this->session->data['token'], 'SSL'); ?>">Constants & Globals</a></li>]]></add>
+		</operation>
+	</file>
+	
+</modification>

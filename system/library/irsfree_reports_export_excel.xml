@@ -1,0 +1,826 @@
+<modification>
+
+	<id>Export Excel Reports</id>
+	<version>2.0</version>
+	<vqmver>2.4.1</vqmver>
+	<author>IRSSOFT</author>
+	
+	
+	<file path="admin/language/english/default.php">
+		<operation>
+			<search position="after"><![CDATA[$_['button_approve']                = 'Approve';]]></search>
+			<add><![CDATA[$_['button_export']                = 'Export';]]></add>
+		</operation>
+	</file>
+       
+      
+<!-- Sale Orders Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/sale_order.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/sale_order/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+								
+
+				$this->load->model('report/sale');
+
+				$orders = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_sale->getOrders($data);
+
+				foreach ($results as $result) {
+					$orders[] = array(
+						'date_start' => date($this->language->get('date_format_short'), strtotime($result['date_start'])),
+						'date_end'   => date($this->language->get('date_format_short'), strtotime($result['date_end'])),
+						'orders'     => $result['orders'],
+						'products'   => $result['products'],
+						'tax'        => $this->currency->format($result['tax'], $this->config->get('config_currency')),
+						'total'      => $this->currency->format($result['total'], $this->config->get('config_currency'))
+					);
+				}
+				
+				$orders_data = array();
+				
+				$orders_column=array();
+				
+				$orders_column = array('Start Date', 'End Date', 'No Of Orders', 'No Of Products', 'Tax', 'Total');
+					
+				$orders_data[0]=   $orders_column;   
+				
+				foreach($orders as $orders_row)
+				{
+					$orders_data[]=   $orders_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Sales Orders Report');
+				
+				$xls->addArray($orders_data);
+				
+				$xls->generateXML('sales_orders_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/sale_order.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+   
+<!-- Sale Tax Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/sale_tax.php">
+		
+    <operation>
+			<search position="before" offset="0"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/sale_tax/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+				
+				
+				$this->load->model('report/sale');
+
+				$data['orders'] = array();
+
+				$data = array(
+					
+				);
+
+				$orders= array();
+
+				$results = $this->model_report_sale->getTaxes($data);
+
+				
+				foreach ($results as $result) {
+					$orders[] = array(
+						'date_start' => date($this->language->get('date_format_short'), strtotime($result['date_start'])),
+						'date_end'   => date($this->language->get('date_format_short'), strtotime($result['date_end'])),
+						'title'      => $result['title'],
+						'orders'     => $result['orders'],
+						'total'      => $this->currency->format($result['total'], $this->config->get('config_currency'))
+					);
+				}
+				
+				$orders_data = array();
+				
+				$orders_column=array();
+				
+				$orders_column = array('Start Date', 'End Date', 'Tax Title', 'No. Orders', 'Total');
+					
+				$orders_data[0]=   $orders_column;   
+				
+				foreach($orders as $orders_row)
+				{
+					$orders_data[]=   $orders_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Sales Tax Report');
+				
+				$xls->addArray($orders_data);
+				
+				$xls->generateXML('sales_tax_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/sale_tax.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+	
+	
+	
+<!-- Sale Shipping Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/sale_shipping.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/sale_shipping/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+				
+				
+				$this->load->model('report/sale');
+
+				$orders= array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_sale->getShipping($data);
+
+				
+				foreach ($results as $result) {
+					$orders[] = array(
+						'date_start' => date($this->language->get('date_format_short'), strtotime($result['date_start'])),
+						'date_end'   => date($this->language->get('date_format_short'), strtotime($result['date_end'])),
+						'title'      => $result['title'],
+						'orders'     => $result['orders'],
+						'total'      => $this->currency->format($result['total'], $this->config->get('config_currency'))
+					);
+				}
+				
+				$orders_data = array();
+				
+				$orders_column=array();
+				
+				$orders_column = array('Start Date', 'End Date', 'Shipping Title', 'No. Orders', 'Total');
+					
+				$orders_data[0]=   $orders_column;   
+				
+				foreach($orders as $orders_row)
+				{
+					$orders_data[]=   $orders_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Sales Shipping Report');
+				
+				$xls->addArray($orders_data);
+				
+				$xls->generateXML('sales_shipping_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/sale_shipping.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+  
+  
+  
+	
+<!-- Sale Return Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/sale_return.php">
+		
+    <operation>
+			<search position="before" offset="0"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/sale_return/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() { ]]></search>
+            <add><![CDATA[public function export() {
+				
+
+				
+				$this->load->model('report/return');
+
+				$returns = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_return->getReturns($data);
+				
+				foreach ($results as $result) {
+					$returns[] = array(
+						'date_start' => date($this->language->get('date_format_short'), strtotime($result['date_start'])),
+						'date_end'   => date($this->language->get('date_format_short'), strtotime($result['date_end'])),
+						'returns'    => $result['returns']
+					);
+				}
+				
+				$returns_data = array();
+				
+				$returns_column=array();
+				
+				$returns_column = array('Start Date', 'End Date', 'No. Returns');
+					
+				$returns_data[0]=   $returns_column;   
+				
+				foreach($returns as $returns_row)
+				{
+					$returns_data[]=   $returns_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Sales Returns Report');
+				
+				$xls->addArray($returns_data);
+				
+				$xls->generateXML('sales_returns_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/sale_return.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+  
+  
+  
+<!-- Sale Coupon Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/sale_coupon.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/sale_coupon/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+				
+
+				
+				$this->load->model('report/coupon');
+
+				$coupons = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_coupon->getCoupons($data);
+				
+				foreach ($results as $result) {
+					$coupons[] = array(
+						'name'   => $result['name'],
+						'code'   => $result['code'],
+						'orders' => $result['orders'],
+						'total'  => $this->currency->format($result['total'], $this->config->get('config_currency'))
+					);
+				}
+				
+				$coupons_data = array();
+				
+				$coupons_column=array();
+				
+				$coupons_column = array('Coupon Name', 'Coupon Code', 'Orders', 'Total');
+					
+				$coupons_data[0]=   $coupons_column;   
+				
+				foreach($coupons as $coupons_row)
+				{
+					$coupons_data[]=   $coupons_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Sales Coupons Report');
+				
+				$xls->addArray($coupons_data);
+				
+				$xls->generateXML('sales_coupons_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/sale_coupon.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+  
+  
+<!-- Product Purchased Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/product_purchased.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/product_purchased/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+		
+	
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+		
+				
+
+				$url = '';
+
+				if (isset($this->request->get['filter_date_start'])) {
+					$url .= '&filter_date_start=' . $this->request->get['filter_date_start'];
+				}
+
+				if (isset($this->request->get['filter_date_end'])) {
+					$url .= '&filter_date_end=' . $this->request->get['filter_date_end'];
+				}
+
+				if (isset($this->request->get['filter_order_status_id'])) {
+					$url .= '&filter_order_status_id=' . $this->request->get['filter_order_status_id'];
+				}
+
+				if (isset($this->request->get['page'])) {
+					$url .= '&page=' . $this->request->get['page'];
+				}
+
+
+				$this->load->model('report/product');
+
+				$products_list= array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_product->getPurchased($data);
+
+				foreach ($results as $result) {
+					$products_list[]= array(
+						'name'       => $result['name'],
+						'model'      => $result['model'],
+						'quantity'   => $result['quantity'],
+						'total'      => $this->currency->format($result['total'], $this->config->get('config_currency'))
+					);
+				}
+				
+				$products = array();
+				
+				$products_column=array();
+				
+				$products_column = array('Product Name', 'Model', 'Quantity', 'Total');
+					
+				$products[0]=   $products_column;   
+				
+				foreach($products_list as $products_row)
+				{
+					$products[]=   $products_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Products Purchased Report');
+				
+				$xls->addArray($products);
+				
+				$xls->generateXML('product_purchased_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+        
+	</file>
+
+<!-- View -->
+
+	<file path="admin/view/template/report/product_purchased.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+    
+ 
+	<!-- Customers Online Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/customer_online.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/customer_online/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+				
+
+				
+				$this->load->model('report/customer');
+				$this->load->model('sale/customer');
+
+				$customers = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_customer->getCustomersOnline($data);
+
+				foreach ($results as $result) {
+					
+
+					$customer_info = $this->model_sale_customer->getCustomer($result['customer_id']);
+
+					if ($customer_info) {
+						$customer = $customer_info['firstname'] . ' ' . $customer_info['lastname'];
+					} else {
+						$customer = $this->language->get('text_guest');
+					}
+
+					$customers[] = array(
+						'ip'         => $result['ip'],
+						'customer'   => $customer,
+						'url'        => $result['url'],
+						'referer'    => $result['referer'],
+						'date_added' => date('d/m/Y H:i:s', strtotime($result['date_added']))
+					);
+				}	
+				
+				$customers_data = array();
+				
+				$customers_column=array();
+				
+				$customers_column = array('IP', 'Customer', 'Last Visited Page', 'Referer', 'Last Click');
+					
+				$customers_data[0]=   $customers_column;   
+				
+				foreach($customers as $customers_row)
+				{
+					$customers_data[]=   $customers_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Customers Online Report');
+				
+				$xls->addArray($customers_data);
+				
+				$xls->generateXML('customers_online_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+		</file>
+		<!-- View -->
+		
+			<file path="admin/view/template/report/customer_online.tpl">
+				<operation>
+					<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+					<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+				</operation>
+			</file>
+		 
+	
+	<!-- Customer Orders Report-->  
+
+    <!-- Controller --> 
+    <file path="admin/controller/report/customer_order.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/customer_order/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+		
+				
+
+				$this->load->model('report/customer');
+
+				$customers_list = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_customer->getOrders($data);
+				
+				foreach ($results as $result) {
+					
+
+					$customers_list[] = array(
+						'customer'       => $result['customer'],
+						'email'          => $result['email'],
+						'customer_group' => $result['customer_group'],
+						'status'         => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
+						'orders'         => $result['orders'],
+						'products'       => $result['products'],
+						'total'          => $this->currency->format($result['total'], $this->config->get('config_currency')),
+					);
+				}
+
+				
+				$customers = array();
+				
+				$customers_column=array();
+				
+				$customers_column = array('Customer Name', 'Email', 'Customer Group', 'Status', 'Orders', 'Products', 'Total');
+					
+				$customers[0]=   $customers_column;   
+				
+				foreach($customers_list as $customers_row)
+				{
+					$customers[]=   $customers_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Customer Orders Report');
+				
+				$xls->addArray($customers);
+				
+				$xls->generateXML('ordered_customer_list_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+        
+	</file>
+
+<!-- View -->
+
+	<file path="admin/view/template/report/customer_order.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+	
+	
+	
+<!-- Customer Reward Points Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/customer_reward.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/customer_reward/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+				
+				
+				$this->load->model('report/customer');
+
+				$customers = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_customer->getRewardPoints($data);
+				
+				foreach ($results as $result) {
+					$customers[] = array(
+						'customer'       => $result['customer'],
+						'email'          => $result['email'],
+						'customer_group' => $result['customer_group'],
+						'status'         => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
+						'points'         => $result['points'],
+						'orders'         => $result['orders'],
+						'total'          => $this->currency->format($result['total'], $this->config->get('config_currency')),
+					);
+				}	
+				
+				$customers_data = array();
+				
+				$customers_column=array();
+				
+				$customers_column = array('Customer Name', 'Email', 'Customer Group', 'Status', 'Reward Points', 'No. Orders', 'Total');
+					
+				$customers_data[0]=   $customers_column;   
+				
+				foreach($customers as $customers_row)
+				{
+					$customers_data[]=   $customers_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Customer Reward Report');
+				
+				$xls->addArray($customers_data);
+				
+				$xls->generateXML('customer_reward_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/customer_reward.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+  
+	
+	
+<!-- Customer Credit Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/customer_credit.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/customer_credit/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+		
+				
+
+				$this->load->model('report/customer');
+
+				$customers = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_customer->getCredit($data);
+				
+				foreach ($results as $result) {
+					$customers[] = array(
+						'customer'       => $result['customer'],
+						'email'          => $result['email'],
+						'customer_group' => $result['customer_group'],
+						'status'         => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
+						'total'          => $this->currency->format($result['total'], $this->config->get('config_currency'))
+					);
+				}	
+				
+				$customers_data = array();
+				
+				$customers_column=array();
+				
+				$customers_column = array('Customer Name', 'Email', 'Customer Group', 'Status', 'Total');
+					
+				$customers_data[0]=   $customers_column;   
+				
+				foreach($customers as $customers_row)
+				{
+					$customers_data[]=   $customers_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Customer Credit Report');
+				
+				$xls->addArray($customers_data);
+				
+				$xls->generateXML('customer_credit_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/customer_credit.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>
+
+
+<!-- Affiliate Commission Report -->  
+    <!-- Controller --> 
+  
+    <file path="admin/controller/report/affiliate.php">
+		
+    <operation>
+			<search position="before"><![CDATA[$data['button_filter'] = $this->language->get('button_filter');]]></search>
+            <add><![CDATA[$data['button_export'] = $this->language->get('button_export');
+			$data['export'] = $this->url->link('report/affiliate/export', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>    
+        	
+        	<operation>
+			<search position="before"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[public function export() {
+		
+				
+
+				$this->load->model('report/affiliate');
+
+				$affiliates = array();
+
+				$data = array(
+					
+				);
+
+				$results = $this->model_report_affiliate->getCommission($data);
+				
+				foreach ($results as $result) {
+					$affiliates[] = array(
+						'affiliate'  => $result['affiliate'],
+						'email'      => $result['email'],
+						'status'     => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
+						'commission' => $this->currency->format($result['commission'], $this->config->get('config_currency')),
+						'orders'     => $result['orders'],
+						'total'      => $this->currency->format($result['total'], $this->config->get('config_currency'))
+					);
+				}	
+				
+				$affiliates_data = array();
+				
+				$affiliates_column=array();
+				
+				$affiliates_column = array('Affiliate Name', 'Email', 'Status', 'Commission', 'No. Orders', 'Total');
+					
+				$affiliates_data[0]=   $affiliates_column;   
+				
+				foreach($affiliates as $affiliates_row)
+				{
+					$affiliates_data[]=   $affiliates_row;            
+				}     
+				require_once(DIR_SYSTEM . 'library/excel_xml.php');
+				$xls = new Excel_XML('UTF-8', false, 'Affiliate Commission Report');
+				
+				$xls->addArray($affiliates_data);
+				
+				$xls->generateXML('affliate_commission_report_'.date('Y-m-d _ H:i:s'));	
+
+			}]]></add>
+		</operation>
+	</file>
+<!-- View -->
+
+	<file path="admin/view/template/report/affiliate.tpl">
+		<operation>
+			<search position="after" offset="2"><![CDATA[<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>]]></search>
+			<add><![CDATA[<div class="pull-right"><a href="<?php echo $export; ?>" data-toggle="tooltip" title="<?php echo $button_export; ?>" class="btn btn-success"><i class="glyphicon glyphicon-export"></i></a></div>]]></add>
+		</operation>
+	</file>	
+	
+ 
+ 
+ 
+ 
+	
+</modification>

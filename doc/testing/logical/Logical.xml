@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="704DF222-AEDC-83A6-2357-F42B35D1B3B1" mainViewID="1B869626-D2B5-A2D0-2F60-AFF13A972F00">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-08-16 15:09:17 UTC</createdTime>
+<ownerDesignName>Testing</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

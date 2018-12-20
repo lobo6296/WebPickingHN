@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8BDE3B9F-9BEE-D9E4-46EB-C464BFC44D99" name="escenario_prueba_det">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:32:11 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_prueba" id="EA1239E9-4FB9-78D5-1829-F6DD57541AD6">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:33:34 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B67BDC2E-F33A-7C33-754F-857A6595BD9C" referredColumn="A2B18557-408D-1FEC-C99D-9FF141B99E2B"/>
+</associations>
+</Column>
+<Column name="cod_escenario" id="A7F791B0-6B86-1F33-B80E-76ABAD9CB712">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:33:34 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B67BDC2E-F33A-7C33-754F-857A6595BD9C" referredColumn="407664B8-F278-0952-6AEF-00391C9B2401"/>
+</associations>
+</Column>
+<Column name="nombre_parametro" id="4B186219-C5EB-BA1F-2A69-28AAC7709696">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:32:43 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="valor" id="25E8F602-5284-7DAF-BF3C-772F6A680663">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:33:04 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sort_order" id="1305E38D-759F-8E8F-0D0F-1A6065A9E459">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:33:20 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EFA0F775-903F-6C0A-DFE8-6F7343BF829A" name="escenario_prueba_det_PK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:33:24 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B186219-C5EB-BA1F-2A69-28AAC7709696"/>
+<colUsage columnID="A7F791B0-6B86-1F33-B80E-76ABAD9CB712"/>
+<colUsage columnID="EA1239E9-4FB9-78D5-1829-F6DD57541AD6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="077590AE-BC39-2FA3-3FB6-6AC213B1E9A7" name="escenario_prueba_det_escenario_prueba_FK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:33:34 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7F791B0-6B86-1F33-B80E-76ABAD9CB712"/>
+<colUsage columnID="EA1239E9-4FB9-78D5-1829-F6DD57541AD6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

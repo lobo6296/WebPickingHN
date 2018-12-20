@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="6BCE02C6-1934-E4AC-05BA-FD79DEED3B96">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-08-16 15:09:17 UTC</createdTime>
+<ownerDesignName>Testing</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="899AC7D0-684F-E121-D746-636E0C30E987" name="proyecto">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:54:30 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_proyecto" id="8E716A6D-5466-D627-1DF1-60E311EC2CFF">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:55:19 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nom_proyecto" id="0A4AA5B6-5414-0954-675B-B7AE0CCE3AD8">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:55:19 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_proyecto" id="74EE24BC-5A06-AB3F-15A1-DA40AD8DAE19">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:55:41 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AB0F9484-94B0-F150-B641-2C75EAF8A20F" name="proyecto_PK">
+<createdBy>jriverar</createdBy>
+<createdTime>2016-10-12 07:55:19 UTC</createdTime>
+<ownerDesignName>testing</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E716A6D-5466-D627-1DF1-60E311EC2CFF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
