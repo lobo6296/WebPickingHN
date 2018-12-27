@@ -1247,41 +1247,6 @@ public function getTotalSummaryofmovement($data) {
  return $query->row['TOTAL'];
 }
 
-public function getTotalInboundbydate($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-
-
-
 public function getSummaryofmovement($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
@@ -1349,6 +1314,38 @@ public function getSummaryofmovement($data){
 	//print_r($sql);
 	//exit(0);
 		return $query->rows;
+}
+
+public function getTotalInboundbydate($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
 }
 
 public function getInboundbydate($data){
