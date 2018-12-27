@@ -29,7 +29,7 @@ class ControllerReportdamaged extends Controller {
 			'filter_hwartcod'   => $filter_hwartcod,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'tipo'              => $this->request->post['tipo'],
-			'titulo'            => 'Stock Report by BOM Number',
+			'titulo'            => 'Reporte de Existencias dañado / Damaged Stock  Report',
 			'reporte'           => 'damaged'
 		);
 		
@@ -130,18 +130,23 @@ class ControllerReportdamaged extends Controller {
 
 		$stock_total = $this->model_report_tigo->getTotaldamaged($filter_data);
 
-		$results = $this->model_report_tigo->getdamaged($filter_data);
+		$results = $this->model_report_tigo->getDamaged($filter_data);
 
 		foreach ($results as $result) {
 			$data['stock'][] = array(
-				'hwartcod'		=> $result['HWARTCOD'],
-				'hwartdesc'     => $result['HWARTDESC'],
-				'hwcaja'    	=> $result['HWCAJA'],
-				'hwpacking'   	=> $result['HWPACKING'],
-				'hwserie' 		=> $result['HWSERIE'],
-				'hwfechaing'    => $result['HWFECHAING'],
-				'existencia'    => $result['EXISTENCIA'],
-				'disponible'    => $result['DISPONIBLE']
+				'hwpacking'		=> $result['HWPACKING'],
+				'hwcontract'    => $result['HWCONTRACT'],
+				'hwfechaing'	=> $result['HWFECHAING'],
+				'hwestado'   	=> $result['HWESTADO'],
+				'hwcaja' 		=> $result['HWCAJA'],
+				'hwartcod'    	=> $result['HWARTCOD'],
+				'hwartdesc'    	=> $result['HWARTDESC'],
+				'hwserie'    	=> $result['HWSERIE'],
+				'existenciabe'	=> $result['EXISTENCIABE'],
+				'hwreservado' 	=> $result['HWRESERVADO'],
+				'disponible'    => $result['DISPONIBLE'],
+				'existenciame'  => $result['EXISTENCIAME'],
+				'localizacion'  => $result['LOCALIZACION']
 			);
 		}
 
@@ -156,19 +161,21 @@ class ControllerReportdamaged extends Controller {
 		$data['column_hwpacking']     = $this->language->get('column_hwpacking');
 		$dsys['column_hwbodega']      = $this->language->get('column_hwbodega');
 		$data['column_hwcontract']    = $this->language->get('column_hwcontract');
-		$data['column_fechaing']   	  = $this->language->get('column_fechaing');
+		$data['column_hwfechaing']   	  = $this->language->get('column_hwfechaing');
 		$data['column_daysinventory'] = $this->language->get('column_daysinventory');
 		$data['column_hwestado']      = $this->language->get('column_hwestado');
 		$data['column_hwcaja']        = $this->language->get('column_hwcaja');
 		$data['column_hwartcod']      = $this->language->get('column_hwartcod');
 		$data['column_hwartdesc']     = $this->language->get('column_hwartdesc');
+		$data['column_hwreservado']     = $this->language->get('column_hwreservado');
+		$data['column_existenciame']     = $this->language->get('column_existenciame');
 		$data['column_hwserie']       = $this->language->get('column_hwserie');
 		$data['column_hwunimed']      = $this->language->get('column_hwunimed');
-		$data['column_existencia']    = $this->language->get('column_existencia');
+		$data['column_existenciabe']    = $this->language->get('column_existenciabe');
 		$data['column_solicitado']    = $this->language->get('column_solicitado');
 		$data['column_disponible']    = $this->language->get('column_disponible');
 		$data['column_damaged']       = $this->language->get('column_damaged');
-		$data['column_location']      = $this->language->get('column_location');
+		$data['column_localizacion']      = $this->language->get('column_localizacion');
 		
 		$data['entry_date_start']     = $this->language->get('entry_date_start');
 		$data['entry_date_end']       = $this->language->get('entry_date_end');

@@ -35,7 +35,11 @@
         <div class="well">
           <div class="row">
 		  
-            <div class="col-sm-6">			  
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="input-hwpacking"><?php echo $entry_hwpacking; ?></label>
+                <input type="text" name="filter_hwpacking" value="<?php echo $filter_hwpacking; ?>" placeholder="<?php echo $entry_hwpacking; ?>" id="input-hwpacking" class="form-control" />
+              </div>			  
               <div class="form-group">
                 <label class="control-label" for="input-hwartcod"><?php echo $entry_hwartcod; ?></label>
                 <input type="text" name="filter_hwartcod" value="<?php echo $filter_hwartcod; ?>" placeholder="<?php echo $entry_hwartcod; ?>" id="input-hwartcod" class="form-control" />

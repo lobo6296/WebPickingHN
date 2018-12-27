@@ -1,28 +1,27 @@
 <?php
 // Heading
-$_['heading_title']       = '05. Damaged Stock Report.';
+$_['heading_title']       = '07. Deliveries by date';
 
 // Text
-$_['text_list']            = 'Damaged Stock Report';
+$_['text_list']            = 'Deliveries by date';
 $_['text_all_sitios']      = '-- Seleccione --';
 
 // Column
 $_['column_hwpacking']     = 'Packing List';
+$_['column_hwbodega']      = 'Bodega';
 $_['column_hwcontract']    = 'Orden Compra';
-$_['column_hwfechaing']      = 'Fecha Ingreso';
+$_['column_inbounddate']   = 'Fecha Ingreso';
 $_['column_daysinventory'] = 'Dias Inventario';
 $_['column_hwestado']      = 'Estado';
 $_['column_hwcaja']        = 'Caja No.';
 $_['column_hwartcod']      = 'Articulo';
 $_['column_hwartdesc']     = 'Descripcion';
-$_['column_hwserie']       = 'Serie';
 $_['column_hwunimed']      = 'Uni. Med';
-$_['column_existenciabe']    = 'Existencia';
-$_['column_hwreservado']    = 'Solicitado';
+$_['column_existencia']    = 'Existencia';
+$_['column_solicitado']    = 'Solicitado';
 $_['column_disponible']    = 'Disponible';
 $_['column_damaged']       = 'Dañado';
-$_['column_localizacion']      = 'Ubicacion';
-$_['column_existenciame']   = 'Dañados';
+$_['column_location']      = 'Ubicacion';
 // Entry
 $_['entry_sitid']         = 'Sitio';
 $_['entry_hwpacking']     = 'Packing List';

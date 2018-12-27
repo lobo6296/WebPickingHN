@@ -69,29 +69,39 @@
           <table class="table table-bordered">
             <thead>
               <tr>
+                <td class="text-left"><?php echo $column_hwpacking; ?></td>
+                <td class="text-left"><?php echo $column_hwcontract; ?></td>
+                <td class="text-right"><?php echo $column_hwfechaing; ?></td>
+                <td class="text-right"><?php echo $column_hwestado; ?></td>
+                <td class="text-right"><?php echo $column_hwcaja; ?></td>
                 <td class="text-right"><?php echo $column_hwartcod; ?></td>
                 <td class="text-right"><?php echo $column_hwartdesc; ?></td>
-                <td class="text-right"><?php echo $column_hwcaja; ?></td>
-                <td class="text-left"><?php echo $column_hwpacking; ?></td>
-				        <td class="text-left"><?php echo $column_hwserie; ?></td>
-                <td class="text-right"><?php echo $column_fechaing; ?></td>
-                <td class="text-right"><?php echo $column_existencia; ?></td>
+                <td class="text-left"><?php echo $column_hwserie; ?></td>
+				        <td class="text-left"><?php echo $column_existenciabe; ?></td>
+                <td class="text-right"><?php echo $column_hwreservado; ?></td>
                 <td class="text-right"><?php echo $column_disponible; ?></td>
-				</tr>
+                <td class="text-right"><?php echo $column_existenciame; ?></td>
+                <td class="text-right"><?php echo $column_localizacion; ?></td>
+				      </tr>
             </thead>
 	
             <tbody>
               <?php if ($stock) { ?>
               <?php foreach ($stock as $s) { ?>
               <tr>
-                <td class="text-left"><?php echo $s['hwartcod']; ?></td>
-                <td class="text-left"><?php echo $s['hwartdesc']; ?></td>
-                <td class="text-right"><?php echo $s['hwcaja']; ?></td>
-                <td class="text-left"><?php echo $s['hwpacking']; ?></td>             
-				        <td class="text-left"><?php echo $s['hwserie']; ?></td>
+                <td class="text-left"><?php echo $s['hwpacking']; ?></td>
+                <td class="text-left"><?php echo $s['hwcontract']; ?></td>
                 <td class="text-right"><?php echo $s['hwfechaing']; ?></td>
-                <td class="text-right"><?php echo $s['existencia']; ?></td>
+                <td class="text-left"><?php echo $s['hwestado']; ?></td>             
+				        <td class="text-left"><?php echo $s['hwcaja']; ?></td>
+                <td class="text-right"><?php echo $s['hwartcod']; ?></td>
+                <td class="text-right"><?php echo $s['hwartdesc']; ?></td>
+                <td class="text-right"><?php echo $s['hwserie']; ?></td>
+                <td class="text-left"><?php echo $s['existenciabe']; ?></td>             
+				        <td class="text-left"><?php echo $s['hwreservado']; ?></td>
                 <td class="text-right"><?php echo $s['disponible']; ?></td>
+                <td class="text-right"><?php echo $s['existenciame']; ?></td>
+                <td class="text-right"><?php echo $s['localizacion']; ?></td>
 				</tr>
               <?php } ?>
               <?php } else { ?>
