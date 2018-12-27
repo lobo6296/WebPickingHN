@@ -294,10 +294,6 @@ public function getTotaldamaged($data) {
  	return $query->row['TOTAL'];
 }
 
-
-
-
-
 public function getSitios() {
    	$db = $this->conectar($this->session->data['conexion']);
 							  
@@ -311,326 +307,6 @@ public function getSitios() {
 }
 
 public function getTotalBydata($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalPackinglist($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalBysite($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalBysiteindetailthemovement($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalInbounds($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalOutbounds($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalReturns($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalOvertime($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalGeneralstockbycode($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalSummaryofmovement($data) {
-	$db = $this->conectar($this->session->data['conexion']);
-						   
-	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
-
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
- $query = $db->query($sql);
-
- return $query->row['TOTAL'];
-}
-
-public function getTotalInboundbydate($data) {
 	$db = $this->conectar($this->session->data['conexion']);
 						   
 	$sql = "select count(*) total
@@ -731,6 +407,38 @@ public function getBydata($data){
 		return $query->rows;
 }
 
+public function getTotalPackinglist($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
+}
+
 public function getPackinglist($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
@@ -798,6 +506,38 @@ public function getPackinglist($data){
 	//print_r($sql);
 	//exit(0);
 		return $query->rows;
+}
+
+public function getTotalBysite($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
 }
 
 public function getBysite($data){
@@ -869,6 +609,38 @@ public function getBysite($data){
 		return $query->rows;
 }
 
+public function getTotalBysiteindetailthemovement($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
+}
+
 public function getBysiteindetailthemovement($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
@@ -936,6 +708,38 @@ public function getBysiteindetailthemovement($data){
 	//print_r($sql);
 	//exit(0);
 		return $query->rows;
+}
+
+public function getTotalInbounds($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
 }
 
 public function getInbounds($data){
@@ -1007,6 +811,38 @@ public function getInbounds($data){
 		return $query->rows;
 }
 
+public function getTotalOutbounds($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
+}
+
 public function getOutbounds($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
@@ -1074,6 +910,38 @@ public function getOutbounds($data){
 	//print_r($sql);
 	//exit(0);
 		return $query->rows;
+}
+
+public function getTotalReturns($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
 }
 
 public function getReturns($data){
@@ -1145,6 +1013,38 @@ public function getReturns($data){
 		return $query->rows;
 }
 
+public function getTotalOvertime($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
+}
+
 public function getOvertime($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
@@ -1212,6 +1112,38 @@ public function getOvertime($data){
 	//print_r($sql);
 	//exit(0);
 		return $query->rows;
+}
+
+public function getTotalGeneralstockbycode($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
 }
 
 public function getGeneralstockbycode($data){
@@ -1282,6 +1214,73 @@ public function getGeneralstockbycode($data){
 	//exit(0);
 		return $query->rows;
 }
+
+public function getTotalSummaryofmovement($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
+}
+
+public function getTotalInboundbydate($data) {
+	$db = $this->conectar($this->session->data['conexion']);
+						   
+	$sql = "select count(*) total
+	from ingresohw i
+	,detinghw d
+	,catalogohw c
+	where d.hwpacking = i.hwpacking
+	and c.hwartcod  = d.hwartcod
+	and i.tipcode   = ".$data['filter_tipinv']."
+	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+
+		  if (isset($data['filter_hwpacking'])) {
+		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		}
+
+		  if (isset($data['filter_hwartcod'])) {
+		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		}
+
+		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
+		}	   
+		 if (isset($data['filter_sitio'])) {
+		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
+		}			   
+ $query = $db->query($sql);
+
+ return $query->row['TOTAL'];
+}
+
+
+
 
 public function getSummaryofmovement($data){
 	$db = $this->conectar($this->session->data['conexion']);
