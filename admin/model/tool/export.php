@@ -400,35 +400,37 @@ function generarReporte($workbook,$y,$data) {
     $this->stockreport($workbook,$y,$data);	
   } elseif ($data['reporte']=='bypackinglist') {
 	$this->bypackinglist($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bymovements') {
+	$this->bymovements($workbook,$y,$data);	  
   } elseif ($data['reporte']=='bybomnumber') {
 	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  } elseif ($data['reporte']=='bybomnumber') {
-	$this->bybomnumber($workbook,$y,$data);	  
-  }	  
+  } elseif ($data['reporte']=='damaged') {
+	$this->damaged($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='averangeoccupancy') {
+	$this->averangeoccupancy($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bydata') {
+	$this->bydata($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='packinglist') {
+	$this->packinglist($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bysite') {
+	$this->bysite($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='bysiteindetailthemovement') {
+	$this->bysiteindetailthemovement($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='inbounds') {
+	$this->inbounds($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='outbounds') {
+	$this->outbounds($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='returns') {
+	$this->returns($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='overtime') {
+	$this->overtime($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='generalstockbycode') {
+	$this->generalstockbycode($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='summaryofmovement') {
+	$this->summaryofmovement($workbook,$y,$data);	  
+  } elseif ($data['reporte']=='inboundbydate') {
+	$this->inboundbydate($workbook,$y,$data);	  
+  }	 
 
 
   $workbook->setActiveSheetIndex(0);	

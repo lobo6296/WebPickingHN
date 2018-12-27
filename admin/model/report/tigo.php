@@ -35,75 +35,6 @@ public function getTotalAverangeoccupancy($data) {
  return $query->row['TOTAL'];
 }
 
-public function getbyBOMNumber($data){
-	$db = $this->conectar($this->session->data['conexion']);
-
-	$sql = "Select d.HWARTCOD
-		,C1.HWARTDESC
-		,D.HWCAJA
-		,D.HWLINEA
-		,C.HWPACKING
-		,D.HWSERIE
-		,to_char(i.hwfechaing,'dd/mm/yyyy hh24:mi:ss') hwfechaing
-		,(D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal) AS Existencia
-		,(D.HwRecBuen - D.HwDespBuen - D.HWRESERVADO) AS DISPONIBLE 
-		,ROW_NUMBER() over (order by D.HWPACKING,D.HWCAJA,D.HWLINEA) R 
-		From Detinghw D 
-		Inner Join Ingresohw I On D.Hwpacking = I.Hwpacking
-		Inner Join Cajahw C On D.Hwpacking = C.Hwpacking And D.Hwcaja = C.Hwcaja
-		Inner Join Catalogohw C1 On D.Hwartcod = C1.Hwartcod
-		Where 1=1 	
-		And I.tipcode = ".$data['filter_tipinv']."
-		AND SUBSTR(D.HWPACKING,1,3) <> 'RET' AND SUBSTR(D.HWPACKING,1,3) <> 'DEV'
-		And (D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal)>0 ";
-
-	$sql = "Select HWARTCOD
-		,HWARTDESC
-		,HWCAJA
-		,HWLINEA
-		,HWPACKING
-		,HWSERIE
-		,hwfechaing
-		,Existencia
-		,DISPONIBLE
-		From (". 
-			$sql;
-			if (isset($data['filter_hwpacking'])) {
-			$sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-			}
-			if (isset($data['filter_hwartcod'])) {
-			$sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-			}
-			if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-			$sql .= " and i.hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
-					and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";	
-			}		   
-			if (isset($data['filter_sitio'])) {
-			$sql .= " and i.sitid = ".$data['filter_sitio'];	
-			}		   
-		$sql .= ")";
-		
-		if (isset($data['start']) || isset($data['limit'])) {
-			if ($data['start'] <= 1) {
-			$data['start'] = 1;
-			}
-
-			if ($data['limit'] < 1) {
-			$data['limit'] = 20;
-			}
-
-			$sql .= " WHERE R BETWEEN " . ((int)$data['start']). " AND " .( (int)$data['limit'] + (int)$data['start']-1);
-		}	
-		$sql .= " order by HWPACKING,HWCAJA,HWLINEA";		
-
-		$query = $db->query($sql);
-	//	echo $sql;
-	
-	//print_r($sql);
-	//exit(0);
-		return $query->rows;
-}
-
 public function getAverangeoccupancy($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
@@ -173,7 +104,7 @@ public function getAverangeoccupancy($data){
 		return $query->rows;
 }
 
-public function getdamaged($data){
+public function getbyBOMNumber($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
 	$sql = "Select d.HWARTCOD
@@ -268,6 +199,75 @@ public function getTotalbyBOMNumber($data) {
  	return $query->row['TOTAL'];
 }
 
+public function getdamaged($data){
+	$db = $this->conectar($this->session->data['conexion']);
+
+	$sql = "Select d.HWARTCOD
+		,C1.HWARTDESC
+		,D.HWCAJA
+		,D.HWLINEA
+		,C.HWPACKING
+		,D.HWSERIE
+		,to_char(i.hwfechaing,'dd/mm/yyyy hh24:mi:ss') hwfechaing
+		,(D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal) AS Existencia
+		,(D.HwRecBuen - D.HwDespBuen - D.HWRESERVADO) AS DISPONIBLE 
+		,ROW_NUMBER() over (order by D.HWPACKING,D.HWCAJA,D.HWLINEA) R 
+		From Detinghw D 
+		Inner Join Ingresohw I On D.Hwpacking = I.Hwpacking
+		Inner Join Cajahw C On D.Hwpacking = C.Hwpacking And D.Hwcaja = C.Hwcaja
+		Inner Join Catalogohw C1 On D.Hwartcod = C1.Hwartcod
+		Where 1=1 	
+		And I.tipcode = ".$data['filter_tipinv']."
+		AND SUBSTR(D.HWPACKING,1,3) <> 'RET' AND SUBSTR(D.HWPACKING,1,3) <> 'DEV'
+		And (D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal)>0 ";
+
+	$sql = "Select HWARTCOD
+		,HWARTDESC
+		,HWCAJA
+		,HWLINEA
+		,HWPACKING
+		,HWSERIE
+		,hwfechaing
+		,Existencia
+		,DISPONIBLE
+		From (". 
+			$sql;
+			if (isset($data['filter_hwpacking'])) {
+			$sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+			}
+			if (isset($data['filter_hwartcod'])) {
+			$sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+			}
+			if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+			$sql .= " and i.hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+					and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";	
+			}		   
+			if (isset($data['filter_sitio'])) {
+			$sql .= " and i.sitid = ".$data['filter_sitio'];	
+			}		   
+		$sql .= ")";
+		
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] <= 1) {
+			$data['start'] = 1;
+			}
+
+			if ($data['limit'] < 1) {
+			$data['limit'] = 20;
+			}
+
+			$sql .= " WHERE R BETWEEN " . ((int)$data['start']). " AND " .( (int)$data['limit'] + (int)$data['start']-1);
+		}	
+		$sql .= " order by HWPACKING,HWCAJA,HWLINEA";		
+
+		$query = $db->query($sql);
+	//	echo $sql;
+	
+	//print_r($sql);
+	//exit(0);
+		return $query->rows;
+}
+
 public function getTotaldamaged($data) {
 	$db = $this->conectar($this->session->data['conexion']);
 						   
@@ -293,6 +293,10 @@ public function getTotaldamaged($data) {
 
  	return $query->row['TOTAL'];
 }
+
+
+
+
 
 public function getSitios() {
    	$db = $this->conectar($this->session->data['conexion']);
