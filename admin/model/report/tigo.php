@@ -110,29 +110,13 @@ public function getTotalAverangeoccupancy($data) {
 	$db = $this->conectar($this->session->data['conexion']);
 						   
 	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+	from TIGO.OCUPACION A
+	where 1=1 ";
 
-		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-		}
-
-		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-		}
-
-		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+		if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+		 	$sql .= " and A.TGFECHA between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
 				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
-		}	   
-		 if (isset($data['filter_sitio'])) {
-		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
-		}			   
+		}	   		   
  	$query = $db->query($sql);
 
  	return $query->row['TOTAL'];
@@ -141,49 +125,32 @@ public function getTotalAverangeoccupancy($data) {
 public function getAverangeoccupancy($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
-	$sql = "Select d.HWARTCOD
-		,C1.HWARTDESC
-		,D.HWCAJA
-		,D.HWLINEA
-		,C.HWPACKING
-		,D.HWSERIE
-		,to_char(i.hwfechaing,'dd/mm/yyyy hh24:mi:ss') hwfechaing
-		,(D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal) AS Existencia
-		,(D.HwRecBuen - D.HwDespBuen - D.HWRESERVADO) AS DISPONIBLE 
-		,ROW_NUMBER() over (order by D.HWPACKING,D.HWCAJA,D.HWLINEA) R 
-		From Detinghw D 
-		Inner Join Ingresohw I On D.Hwpacking = I.Hwpacking
-		Inner Join Cajahw C On D.Hwpacking = C.Hwpacking And D.Hwcaja = C.Hwcaja
-		Inner Join Catalogohw C1 On D.Hwartcod = C1.Hwartcod
+	$sql = "Select to_char(A.TGFECHA,'dd/mm/yyyy hh24:mi:ss') TGFECHA
+			,A.TGCARRIL
+			,A.TGANCHO
+			,A.TGLARGO
+			,A.TIPCODE
+			,A.TIGOSUBCTA_CODE
+			,(A.TGANCHO * A.TGLARGO) AS PORCARRIL
+		,ROW_NUMBER() over (order by A.TIPCODE) R 
+		From TIGO.OCUPACION A
 		Where 1=1 	
-		And I.tipcode = ".$data['filter_tipinv']."
-		AND SUBSTR(D.HWPACKING,1,3) <> 'RET' AND SUBSTR(D.HWPACKING,1,3) <> 'DEV'
-		And (D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal)>0 ";
+		And A.tipcode = ".$data['filter_tipinv']." ";
 
-	$sql = "Select HWARTCOD
-		,HWARTDESC
-		,HWCAJA
-		,HWLINEA
-		,HWPACKING
-		,HWSERIE
-		,hwfechaing
-		,Existencia
-		,DISPONIBLE
+	$sql = "Select TGFECHA
+		,TGCARRIL
+		,TGANCHO
+		,TGLARGO
+		,TIPCODE
+		,TIGOSUBCTA_CODE
+		,PORCARRIL
 		From (". 
 			$sql;
-			if (isset($data['filter_hwpacking'])) {
-			$sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
-			}
-			if (isset($data['filter_hwartcod'])) {
-			$sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
-			}
 			if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-			$sql .= " and i.hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+			$sql .= " and A.TGFECHA between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
 					and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";	
 			}		   
-			if (isset($data['filter_sitio'])) {
-			$sql .= " and i.sitid = ".$data['filter_sitio'];	
-			}		   
+			  
 		$sql .= ")";
 		
 		if (isset($data['start']) || isset($data['limit'])) {
@@ -197,7 +164,7 @@ public function getAverangeoccupancy($data){
 
 			$sql .= " WHERE R BETWEEN " . ((int)$data['start']). " AND " .( (int)$data['limit'] + (int)$data['start']-1);
 		}	
-		$sql .= " order by HWPACKING,HWCAJA,HWLINEA";		
+		$sql .= " order by TIPCODE";		
 
 		$query = $db->query($sql);
 	//	echo $sql;
@@ -545,75 +512,100 @@ public function getTotalPackinglist($data) {
 	$db = $this->conectar($this->session->data['conexion']);
 						   
 	$sql = "select count(*) total
-	from ingresohw i
-	,detinghw d
-	,catalogohw c
-	where d.hwpacking = i.hwpacking
-	and c.hwartcod  = d.hwartcod
-	and i.tipcode   = ".$data['filter_tipinv']."
-	and (HwRecBuen - HwDespBuen) + (HwRecMal - HwDespMal)>0";
+		FROM tigo.DETDESHW a
+			INNER JOIN TIGO.DESPACHOHW b on a.HWDESPACHO = b.HWDESPACHO
+			INNER JOIN TIGO.INGRESOHW c on a.HWPACKING = C.HWPACKING
+			INNER JOIN TIGO.DETMRHW d on d.HWPACKING = a.HWPACKING and B.TIPCODE = d.TIPCODE
+			inner JOIN TIGO.MRHW e on d.HWMR = e.HWMR and e.TIPCODE = d.TIPCODE and E.HWENTREGADO = A.HWDESPACHO
+			inner JOIN TIGO.SITIOS f on f.SITID = B.SITID
+			inner JOIN tigo.DETINGHW g on g.HWPACKING = c.HWPACKING and d.HWLINSOL = g.HWLINEA and g.HWCAJA = D.HWCAJA 
+			inner JOIN tigo.CATALOGOHW h on h.HWARTCOD = g.HWARTCOD
+			INNER JOIN TIGO.TIGO_SUBCUENTA i on g.TIGOSUBCTA_CODE = i.TIGOSUBCTA_CODE and i.TIPCODE = B.TIPCODE
+  		WHERE 1=1 
+			and B.TIPCODE   = ".$data['filter_tipinv']." ";
 
 		  if (isset($data['filter_hwpacking'])) {
-		 $sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+		 $sql .= " AND A.HWPACKING LIKE '%" . $data['filter_hwpacking'] . "%' ";
 		}
 
 		  if (isset($data['filter_hwartcod'])) {
-		 $sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+		 $sql .= " and  G.HWARTCOD LIKE '%" . $data['filter_hwartcod'] . "%' ";
 		}
 
 		 if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-		 $sql .= " and hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+		 $sql .= " and B.HWFDESPACHO between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
 				   and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";
 		}	   
-		 if (isset($data['filter_sitio'])) {
+		if (isset($data['filter_sitio'])) {
 		 $sql .= " and i.sitid = ".$data['filter_sitio'];	
 		}			   
- $query = $db->query($sql);
+ 	$query = $db->query($sql);
 
- return $query->row['TOTAL'];
+ 	return $query->row['TOTAL'];
 }
 
 public function getPackinglist($data){
 	$db = $this->conectar($this->session->data['conexion']);
 
-	$sql = "Select d.HWARTCOD
-		,C1.HWARTDESC
-		,D.HWCAJA
-		,D.HWLINEA
-		,C.HWPACKING
-		,D.HWSERIE
-		,to_char(i.hwfechaing,'dd/mm/yyyy hh24:mi:ss') hwfechaing
-		,(D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal) AS Existencia
-		,(D.HwRecBuen - D.HwDespBuen - D.HWRESERVADO) AS DISPONIBLE 
-		,ROW_NUMBER() over (order by D.HWPACKING,D.HWCAJA,D.HWLINEA) R 
-		From Detinghw D 
-		Inner Join Ingresohw I On D.Hwpacking = I.Hwpacking
-		Inner Join Cajahw C On D.Hwpacking = C.Hwpacking And D.Hwcaja = C.Hwcaja
-		Inner Join Catalogohw C1 On D.Hwartcod = C1.Hwartcod
-		Where 1=1 	
-		And I.tipcode = ".$data['filter_tipinv']."
-		AND SUBSTR(D.HWPACKING,1,3) <> 'RET' AND SUBSTR(D.HWPACKING,1,3) <> 'DEV'
-		And (D.HwRecBuen - D.HwDespBuen) + (D.HwRecMal - D.HwDespMal)>0 ";
+	$sql = "Select A.HWDESPACHO
+				,to_char(B.HWFDESPACHO,'dd/mm/yyyy hh24:mi:ss') as HWFDESPACHO
+				,e.HWMRNO
+				,to_char(e.HWFECHASOL,'dd/mm/yyyy hh24:mi:ss') as HWFECHASOL
+				,f.SITNOM
+				,A.HWPACKING
+				,C.HWPO
+				,G.HWARTCOD
+				,h.HWARTDESC
+				,G.HWSERIE
+				,G.HWSERIEPREDEFINIDA
+				,G.HWSERIEACTIVOFIJO
+				,A.HWCANTDESP
+				,H.HWUNIMED
+				,E.MRHW_ESTADO
+				,i.TIGOSUBCTA_DESCRIP
+				,B.HWENTREGO
+				,B.HWRECIBIO
+				,ROW_NUMBER() over (order by A.HWDESPACHO,G.HWARTCOD,e.HWMRNO) R 
+			From tigo.DETDESHW a
+				INNER JOIN TIGO.DESPACHOHW b on a.HWDESPACHO = b.HWDESPACHO
+				INNER JOIN TIGO.INGRESOHW c on a.HWPACKING = C.HWPACKING
+				INNER JOIN TIGO.DETMRHW d on d.HWPACKING = a.HWPACKING and B.TIPCODE = d.TIPCODE
+				inner JOIN TIGO.MRHW e on d.HWMR = e.HWMR and e.TIPCODE = d.TIPCODE and E.HWENTREGADO = A.HWDESPACHO
+				inner JOIN TIGO.SITIOS f on f.SITID = B.SITID
+				inner JOIN tigo.DETINGHW g on g.HWPACKING = c.HWPACKING and d.HWLINSOL = g.HWLINEA and g.HWCAJA = D.HWCAJA 
+				inner JOIN tigo.CATALOGOHW h on h.HWARTCOD = g.HWARTCOD
+				INNER JOIN TIGO.TIGO_SUBCUENTA i on g.TIGOSUBCTA_CODE = i.TIGOSUBCTA_CODE and i.TIPCODE = B.TIPCODE
+			Where 1=1 	
+				And B.TIPCODE = ".$data['filter_tipinv']." ";
 
-	$sql = "Select HWARTCOD
-		,HWARTDESC
-		,HWCAJA
-		,HWLINEA
-		,HWPACKING
-		,HWSERIE
-		,hwfechaing
-		,Existencia
-		,DISPONIBLE
+	$sql = "Select HWDESPACHO
+				,HWFDESPACHO
+				,HWMRNO
+				,HWFECHASOL
+				,SITNOM
+				,HWPACKING
+				,HWPO
+				,HWARTCOD
+				,HWARTDESC
+				,HWSERIE
+				,HWSERIEPREDEFINIDA
+				,HWSERIEACTIVOFIJO
+				,HWCANTDESP
+				,HWUNIMED
+				,MRHW_ESTADO
+				,TIGOSUBCTA_DESCRIP
+				,HWENTREGO
+				,HWRECIBIO
 		From (". 
 			$sql;
 			if (isset($data['filter_hwpacking'])) {
-			$sql .= " and i.hwpacking LIKE '%" . $data['filter_hwpacking'] . "%' ";
+			$sql .= " and a.HWPACKING LIKE '%" . $data['filter_hwpacking'] . "%' ";
 			}
 			if (isset($data['filter_hwartcod'])) {
-			$sql .= " and d.hwartcod LIKE '%" . $data['filter_hwartcod'] . "%' ";
+			$sql .= " and g.HWARTCOD LIKE '%" . $data['filter_hwartcod'] . "%' ";
 			}
 			if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
-			$sql .= " and i.hwfechaing between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+			$sql .= " and B.HWFDESPACHO between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
 					and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";	
 			}		   
 			if (isset($data['filter_sitio'])) {
@@ -632,7 +624,7 @@ public function getPackinglist($data){
 
 			$sql .= " WHERE R BETWEEN " . ((int)$data['start']). " AND " .( (int)$data['limit'] + (int)$data['start']-1);
 		}	
-		$sql .= " order by HWPACKING,HWCAJA,HWLINEA";		
+		$sql .= " order by HWDESPACHO,HWARTCOD,HWMRNO";		
 
 		$query = $db->query($sql);
 	//	echo $sql;
@@ -1674,6 +1666,47 @@ public function getDamagedReportExcel($data){
 	return $query->rows;
 }
 
+public function getAverangeoccupancyReportExcel($data){
+	$db = $this->conectar($this->session->data['conexion']);
+
+	$sql = "Select to_char(A.TGFECHA,'dd/mm/yyyy hh24:mi:ss') TGFECHA
+			,A.TGCARRIL
+			,A.TGANCHO
+			,A.TGLARGO
+			,A.TIPCODE
+			,A.TIGOSUBCTA_CODE
+			,(A.TGANCHO * A.TGLARGO) AS PORCARRIL
+			,ROW_NUMBER() over (order by A.TIPCODE) R 
+		From TIGO.OCUPACION A
+		Where 1=1 	
+		And a.TIPCODE = ".$data['filter_tipinv']." ";
+
+	$sql = "Select TGFECHA
+			,TGCARRIL
+			,TGANCHO
+			,TGLARGO
+			,TIPCODE
+			,TIGOSUBCTA_CODE
+			,PORCARRIL
+		From (". 
+			$sql;
+			if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+			$sql .= " and A.TGFECHA between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+					and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";	
+			}		   
+			   
+		$sql .= ")";
+		
+		$sql .= " order by TIPCODE";		
+
+		$query = $db->query($sql);
+	
+	//echo $sql;
+	//print_r($sql);
+	//exit(0);
+	return $query->rows;
+}
+
 public function getStockReportExcelExcel($data) {
    	$db = $this->conectar($this->session->data['conexion']);
 							  
@@ -1830,6 +1863,68 @@ public function getStockReportBydataExcel($data){
 
 public function getStockReportPackinglistExcel($data){
 	$db = $this->conectar($this->session->data['conexion']);
+
+	$sql = "Select A.HWDESPACHO
+			,to_char(B.HWFDESPACHO,'dd/mm/yyyy hh24:mi:ss') as HWFDESPACHO
+			,e.HWMRNO
+			,to_char(e.HWFECHASOL,'dd/mm/yyyy hh24:mi:ss') as HWFECHASOL
+			,f.SITNOM
+			,A.HWPACKING
+			,C.HWPO
+			,G.HWARTCOD
+			,h.HWARTDESC
+			,G.HWSERIE
+			,G.HWSERIEPREDEFINIDA
+			,G.HWSERIEACTIVOFIJO
+			,A.HWCANTDESP
+			,H.HWUNIMED
+			,ROW_NUMBER() over (order by A.HWDESPACHO,G.HWARTCOD,e.HWMRNO) R 
+		From tigo.DETDESHW a
+			INNER JOIN TIGO.DESPACHOHW b on a.HWDESPACHO = b.HWDESPACHO
+			INNER JOIN TIGO.INGRESOHW c on a.HWPACKING = C.HWPACKING
+			INNER JOIN TIGO.DETMRHW d on d.HWPACKING = a.HWPACKING and B.TIPCODE = d.TIPCODE
+			inner JOIN TIGO.MRHW e on d.HWMR = e.HWMR and e.TIPCODE = d.TIPCODE and E.HWENTREGADO = A.HWDESPACHO
+			inner JOIN TIGO.SITIOS f on f.SITID = B.SITID
+			inner JOIN tigo.DETINGHW g on g.HWPACKING = c.HWPACKING and d.HWLINSOL = g.HWLINEA and g.HWCAJA = D.HWCAJA 
+			inner JOIN tigo.CATALOGOHW h on h.HWARTCOD = g.HWARTCOD
+			INNER JOIN TIGO.TIGO_SUBCUENTA i on g.TIGOSUBCTA_CODE = i.TIGOSUBCTA_CODE and i.TIPCODE = B.TIPCODE
+		Where 1=1 	
+		And B.TIPCODE = ".$data['filter_tipinv']." ";
+
+	$sql = "Select HWDESPACHO
+			,HWFDESPACHO
+			,HWMRNO
+			,HWFECHASOL
+			,SITNOM
+			,HWPACKING
+			,HWPO
+			,HWARTCOD
+			,HWARTDESC
+			,HWSERIE
+			,HWSERIEPREDEFINIDA
+			,HWSERIEACTIVOFIJO
+			,HWCANTDESP
+			,HWUNIMED
+		From (". 
+			$sql;
+			if (isset($data['filter_hwpacking'])) {
+			$sql .= " and A.HWPACKING LIKE '%" . $data['filter_hwpacking'] . "%' ";
+			}
+			if (isset($data['filter_hwartcod'])) {
+			$sql .= " and g.HWARTCOD LIKE '%" . $data['filter_hwartcod'] . "%' ";
+			}
+			if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+			$sql .= " and B.HWFDESPACHO between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+					and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";	
+			}		   
+			if (isset($data['filter_sitio'])) {
+			$sql .= " and i.sitid = ".$data['filter_sitio'];	
+			}		   
+		$sql .= ")";
+		
+		$sql .= " order by HWDESPACHO,HWARTCOD,HWMRNO";		
+
+		$query = $db->query($sql);
 }
 
 public function getStockReportBysiteExcel($data){

@@ -5,24 +5,14 @@ $_['heading_title']       = '04. Stock Report by BOM Number';
 // Text
 $_['text_list']            = 'Report by BOM Number';
 $_['text_all_sitios']      = '-- Seleccione --';
-
+ 
 // Column
-$_['column_hwpacking']     = 'Packing List';
-$_['column_hwbodega']      = 'Bodega';
-$_['column_hwcontract']    = 'Orden Compra';
-$_['column_fechaing']      = 'Fecha Ingreso';
-$_['column_daysinventory'] = 'Dias Inventario';
-$_['column_hwestado']      = 'Estado';
-$_['column_hwcaja']        = 'Caja No.';
-$_['column_hwartcod']      = 'Articulo';
-$_['column_hwartdesc']     = 'Descripcion';
-$_['column_hwserie']       = 'Serie';
-$_['column_hwunimed']      = 'Uni. Med';
-$_['column_existencia']    = 'Existencia';
-$_['column_solicitado']    = 'Solicitado';
-$_['column_disponible']    = 'Disponible';
-$_['column_damaged']       = 'Dañado';
-$_['column_location']      = 'Ubicacion';
+$_['column_tgfecha']    = 'Fecha';
+$_['column_tgcarril']   = 'Carril';
+$_['column_tgancho']    = 'Ancho';
+$_['column_tglargo']    = 'Largo';
+$_['column_porcarril']  = 'Por Carril';
+
 // Entry
 $_['entry_sitid']         = 'Sitio';
 $_['entry_hwpacking']     = 'Packing List';

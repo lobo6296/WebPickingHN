@@ -25,6 +25,7 @@
   <input type="hidden" name="date_start" value="<?php echo $filter_date_start;?>">
   <input type="hidden" name="date_end" value="<?php echo $filter_date_end;?>">
   <input type="hidden" name="hwartcod" value="<?php echo $filter_hwartcod;?>">
+  <input type="hidden" name="hwpacking" value="<?php echo $filter_hwpacking;?>">
   </form>
   <div class="container-fluid">
     <div class="panel panel-default">
@@ -35,7 +36,11 @@
         <div class="well">
           <div class="row">
 		  
-            <div class="col-sm-6">			  
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="input-hwpacking"><?php echo $entry_hwpacking; ?></label>
+                <input type="text" name="filter_hwpacking" value="<?php echo $filter_hwpacking; ?>" placeholder="<?php echo $entry_hwpacking; ?>" id="input-hwpacking" class="form-control" />
+              </div>			  
               <div class="form-group">
                 <label class="control-label" for="input-hwartcod"><?php echo $entry_hwartcod; ?></label>
                 <input type="text" name="filter_hwartcod" value="<?php echo $filter_hwartcod; ?>" placeholder="<?php echo $entry_hwartcod; ?>" id="input-hwartcod" class="form-control" />
@@ -69,14 +74,20 @@
           <table class="table table-bordered">
             <thead>
               <tr>
+                <td class="text-right"><?php echo $column_hwdespacho; ?></td>
+                <td class="text-right"><?php echo $column_hwfdespacho; ?></td>
+                <td class="text-right"><?php echo $column_hwmrno; ?></td>
+                <td class="text-left"><?php echo $column_hwfechasol; ?></td>
+				        <td class="text-left"><?php echo $column_sitnom; ?></td>
+                <td class="text-right"><?php echo $column_hwpacking; ?></td>
+                <td class="text-right"><?php echo $column_hwcaja; ?></td>
                 <td class="text-right"><?php echo $column_hwartcod; ?></td>
                 <td class="text-right"><?php echo $column_hwartdesc; ?></td>
-                <td class="text-right"><?php echo $column_hwcaja; ?></td>
-                <td class="text-left"><?php echo $column_hwpacking; ?></td>
-				        <td class="text-left"><?php echo $column_hwserie; ?></td>
-                <td class="text-right"><?php echo $column_fechaing; ?></td>
-                <td class="text-right"><?php echo $column_existencia; ?></td>
-                <td class="text-right"><?php echo $column_disponible; ?></td>
+                <td class="text-right"><?php echo $column_hwserie; ?></td>
+                <td class="text-right"><?php echo $column_hwseriepredefinida; ?></td>
+                <td class="text-left"><?php echo $column_hwserieactivofijo; ?></td>
+				        <td class="text-left"><?php echo $column_hwcantdesp; ?></td>
+                <td class="text-right"><?php echo $column_hwunimed; ?></td>
 				</tr>
             </thead>
 	
@@ -84,14 +95,20 @@
               <?php if ($stock) { ?>
               <?php foreach ($stock as $s) { ?>
               <tr>
-                <td class="text-left"><?php echo $s['hwartcod']; ?></td>
-                <td class="text-left"><?php echo $s['hwartdesc']; ?></td>
+                <td class="text-left"><?php echo $s['hwdespacho']; ?></td>
+                <td class="text-left"><?php echo $s['hwfdespacho']; ?></td>
+                <td class="text-right"><?php echo $s['hwmrno']; ?></td>
+                <td class="text-left"><?php echo $s['hwfechasol']; ?></td>             
+				        <td class="text-left"><?php echo $s['sitnom']; ?></td>
+                <td class="text-right"><?php echo $s['hwpacking']; ?></td>
                 <td class="text-right"><?php echo $s['hwcaja']; ?></td>
-                <td class="text-left"><?php echo $s['hwpacking']; ?></td>             
-				        <td class="text-left"><?php echo $s['hwserie']; ?></td>
-                <td class="text-right"><?php echo $s['hwfechaing']; ?></td>
-                <td class="text-right"><?php echo $s['existencia']; ?></td>
-                <td class="text-right"><?php echo $s['disponible']; ?></td>
+                <td class="text-right"><?php echo $s['hwartcod']; ?></td>
+                <td class="text-left"><?php echo $s['hwartdesc']; ?></td>
+                <td class="text-left"><?php echo $s['hwserie']; ?></td>
+                <td class="text-right"><?php echo $s['hwseriepredefinida']; ?></td>
+                <td class="text-left"><?php echo $s['hwserieactivofijo']; ?></td>             
+				        <td class="text-left"><?php echo $s['hwcantdesp']; ?></td>
+                <td class="text-right"><?php echo $s['hwunimed']; ?></td>             
 				</tr>
               <?php } ?>
               <?php } else { ?>
@@ -111,7 +128,7 @@
   </div>
   <script type="text/javascript"><!--
 $('#button-filter').on('click', function() {
-	url = 'index.php?route=report/damaged&token=<?php echo $token; ?>';
+	url = 'index.php?route=report/packinglist&token=<?php echo $token; ?>';
 	
 	var filter_date_start = $('input[name=\'filter_date_start\']').val();
 	
@@ -124,7 +141,13 @@ $('#button-filter').on('click', function() {
 	if (filter_date_end) {
 		url += '&filter_date_end=' + encodeURIComponent(filter_date_end);
 	}
+
+	var filter_hwpacking = $('input[name=\'filter_hwpacking\']').val();
 	
+	if (filter_hwpacking) {
+		url += '&filter_hwpacking=' + encodeURIComponent(filter_hwpacking);
+	}
+
 	var filter_hwartcod = $('input[name=\'filter_hwartcod\']').val();
 
 	if (filter_hwartcod) {

@@ -69,14 +69,11 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <td class="text-right"><?php echo $column_hwartcod; ?></td>
-                <td class="text-right"><?php echo $column_hwartdesc; ?></td>
-                <td class="text-right"><?php echo $column_hwcaja; ?></td>
-                <td class="text-left"><?php echo $column_hwpacking; ?></td>
-				        <td class="text-left"><?php echo $column_hwserie; ?></td>
-                <td class="text-right"><?php echo $column_fechaing; ?></td>
-                <td class="text-right"><?php echo $column_existencia; ?></td>
-                <td class="text-right"><?php echo $column_disponible; ?></td>
+                <td class="text-right"><?php echo $column_tgfecha; ?></td>
+                <td class="text-right"><?php echo $column_tgcarril; ?></td>
+                <td class="text-right"><?php echo $column_tgancho; ?></td>
+                <td class="text-left"><?php echo $column_tglargo; ?></td>
+				        <td class="text-left"><?php echo $column_porcarril; ?></td>
 				</tr>
             </thead>
 	
@@ -84,14 +81,11 @@
               <?php if ($stock) { ?>
               <?php foreach ($stock as $s) { ?>
               <tr>
-                <td class="text-left"><?php echo $s['hwartcod']; ?></td>
-                <td class="text-left"><?php echo $s['hwartdesc']; ?></td>
-                <td class="text-right"><?php echo $s['hwcaja']; ?></td>
-                <td class="text-left"><?php echo $s['hwpacking']; ?></td>             
-				        <td class="text-left"><?php echo $s['hwserie']; ?></td>
-                <td class="text-right"><?php echo $s['hwfechaing']; ?></td>
-                <td class="text-right"><?php echo $s['existencia']; ?></td>
-                <td class="text-right"><?php echo $s['disponible']; ?></td>
+                <td class="text-left"><?php echo $s['tgfecha']; ?></td>
+                <td class="text-left"><?php echo $s['tgcarril']; ?></td>
+                <td class="text-right"><?php echo $s['tgancho']; ?></td>
+                <td class="text-left"><?php echo $s['tglargo']; ?></td>             
+				        <td class="text-left"><?php echo $s['porcarril']; ?></td>
 				</tr>
               <?php } ?>
               <?php } else { ?>
@@ -111,7 +105,7 @@
   </div>
   <script type="text/javascript"><!--
 $('#button-filter').on('click', function() {
-	url = 'index.php?route=report/damaged&token=<?php echo $token; ?>';
+	url = 'index.php?route=report/averangeoccupancy&token=<?php echo $token; ?>';
 	
 	var filter_date_start = $('input[name=\'filter_date_start\']').val();
 	
