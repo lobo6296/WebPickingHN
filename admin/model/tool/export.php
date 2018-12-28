@@ -457,6 +457,162 @@ function damaged($workbook,$y,$param) {
 			$worksheet->setCellValue('L'.$i,$totDisponibleDa);
 }
 
+function averangeoccupancy($workbook,$y,$param) {
+	
+	$this->load->model('report/tigo');
+	$this->load->language('report/damaged'); 
+	
+	$worksheet = $workbook->getActiveSheet();
+	
+	$detalle = $this->model_report_tigo->getDamagedReportExcel($param); 
+	$data=null;
+  
+	$j=0;
+	$totExistencia = 0;
+	$totDisponible = 0;
+	$totDisponibleDa = 0;
+	
+	$worksheet->setCellValue('A'.(5),'Bom No.');
+	$worksheet->setCellValue('B'.(5),$param['filter_hwartcod']);
+	$start=$y;
+	$i=$start;
+				  
+		  foreach ($detalle as $p) {			
+			  
+			  if ($i==$start) {
+				  
+				$data[1] = $this->language->get('column_hwpacking');
+				$data[2] = $this->language->get('column_hwcontract');
+				$data[3] = $this->language->get('column_hwfechaing');
+				$data[4] = $this->language->get('column_hwestado');
+				$data[5] = $this->language->get('column_hwcaja');
+				$data[6] = $this->language->get('column_hwartcod');
+				$data[7] = $this->language->get('column_hwartdesc');
+				$data[8] = $this->language->get('column_hwserie');
+				$data[9] = $this->language->get('column_existenciabe');
+				$data[10] = $this->language->get('column_hwreservado');
+				$data[11] = $this->language->get('column_disponible');
+				$data[12] = $this->language->get('column_existenciame');
+				$data[13] = $this->language->get('column_localizacion');
+				
+				$this->cellColor($workbook,'A'.$start.':N'.$start, 'FFFFE0');	
+				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+  
+				$i += 1;	
+			  }
+  
+			  $data[1] = $p['HWPACKING'];
+			  $data[2] = $p['HWCONTRACT'];
+			  $data[3] = $p['HWFECHAING'];
+			  $data[4] = $p['HWESTADO'];
+			  $data[5] = $p['HWCAJA'];
+			  $data[6] = $p['HWARTCOD'];
+			  $data[7] = $p['HWARTDESC'];
+			  $data[8] = $p['HWSERIE'];
+			  $data[9] = $p['EXISTENCIABE'];
+			  $data[10] = $p['HWRESERVADO'];
+			  $data[11] = $p['DISPONIBLE'];
+			  $data[12] = $p['EXISTENCIAME'];
+			  $data[13] = $p['LOCALIZACION'];
+			  
+			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+			  
+			  $i += 1;
+			  $j = 0;
+			  $totExistencia = $totExistencia + $p['EXISTENCIABE'];
+			  $totDisponible = $totDisponible + $p['DISPONIBLE'];
+			  $totDisponibleDa = $totDisponibleDa + $p['EXISTENCIAME'];
+		  	}
+		  	$worksheet->setCellValue('F'.$i,'Totales');
+			$worksheet->setCellValue('I'.$i,$totExistencia);
+			$worksheet->setCellValue('K'.$i,$totDisponible);
+			$worksheet->setCellValue('L'.$i,$totDisponibleDa);
+}
+
+function bydata($workbook,$y,$param) {
+	
+	$this->load->model('report/tigo');
+	$this->load->language('report/bydata'); 
+	
+	$worksheet = $workbook->getActiveSheet();
+	
+	$detalle = $this->model_report_tigo->getStockReportBydataExcel($param); 
+	$data=null;
+  
+	$j=0;
+	$totExistencia = 0;
+	$totDisponible = 0;
+	$totDisponibleDa = 0;
+	
+	$worksheet->setCellValue('A'.(6),'Bom No.');
+	$worksheet->setCellValue('B'.(6),$param['filter_hwartcod']);
+	$worksheet->setCellValue('C'.(6),'Packing');
+	$worksheet->setCellValue('D'.(6),$param['filter_hwpacking']);
+	$start=$y + 1;
+	$i=$start;
+				  
+		  foreach ($detalle as $p) {			
+			  
+			  if ($i==$start) {
+				  
+				$data[1] = $this->language->get('column_hwdespacho');
+				$data[2] = $this->language->get('column_hwfdespacho');
+				$data[3] = $this->language->get('column_hwmrno');
+				$data[4] = $this->language->get('column_hwfechasol');
+				$data[5] = $this->language->get('column_sitnom');
+				$data[6] = $this->language->get('column_hwpacking');
+				$data[7] = $this->language->get('column_hwpo');
+				$data[8] = $this->language->get('column_hwartcod');
+				$data[9] = $this->language->get('column_hwartdesc');
+				$data[10] = $this->language->get('column_hwserie');
+				$data[11] = $this->language->get('column_hwseriepredefinida');
+				$data[12] = $this->language->get('column_hwserieactivofijo');
+				$data[13] = $this->language->get('column_hwcantdesp');
+				$data[14] = $this->language->get('column_hwunimed');
+				$data[15] = $this->language->get('column_mrhw_estado');
+				$data[16] = $this->language->get('column_tigosubcta_descrip');
+				$data[17] = $this->language->get('column_hwentrego');
+				$data[18] = $this->language->get('column_hwrecibio');
+				
+				$this->cellColor($workbook,'A'.$start.':R'.$start, 'FFFFE0');	
+				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+  
+				$i += 1;	
+			  }
+  
+			  $data[1] = $p['HWDESPACHO'];
+			  $data[2] = $p['HWFDESPACHO'];
+			  $data[3] = $p['HWMRNO'];
+			  $data[4] = $p['HWFECHASOL'];
+			  $data[5] = $p['SITNOM'];
+			  $data[6] = $p['HWPACKING'];
+			  $data[7] = $p['HWPO'];
+			  $data[8] = $p['HWARTCOD'];
+			  $data[9] = $p['HWARTDESC'];
+			  $data[10] = $p['HWSERIE'];
+			  $data[11] = $p['HWSERIEPREDEFINIDA'];
+			  $data[12] = $p['HWSERIEACTIVOFIJO'];
+			  $data[13] = $p['HWCANTDESP'];
+			  $data[14] = $p['HWUNIMED'];
+			  $data[15] = $p['MRHW_ESTADO'];
+			  $data[16] = $p['TIGOSUBCTA_DESCRIP'];
+			  $data[17] = $p['HWENTREGO'];
+			  $data[18] = $p['HWRECIBIO'];
+			  
+			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+			  
+			  $i += 1;
+			  $j = 0;
+			  $totExistencia = $totExistencia + $p['HWCANTDESP'];
+			  //$totDisponible = $totDisponible + $p['DISPONIBLE'];
+			  //$totDisponibleDa = $totDisponibleDa + $p['EXISTENCIAME'];
+		  	}
+		  	$worksheet->setCellValue('F'.$i,'Totales');
+			$worksheet->setCellValue('M'.$i,$totExistencia);
+			//$worksheet->setCellValue('K'.$i,$totDisponible);
+			//$worksheet->setCellValue('L'.$i,$totDisponibleDa);
+}
+
 function generarReporte($workbook,$y,$data) {
 	$util = New Util();
 		
