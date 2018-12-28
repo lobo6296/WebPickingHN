@@ -604,7 +604,7 @@ function packinglist($workbook,$y,$param) {
 	
 	$worksheet = $workbook->getActiveSheet();
 	
-	$detalle = $this->model_report_tigo->getAverangeoccupancyReportExcel($param); 
+	$detalle = $this->model_report_tigo->getStockReportPackinglistExcel($param); 
 	$data=null;
   
 	$j=0;
@@ -612,45 +612,58 @@ function packinglist($workbook,$y,$param) {
 	$totDisponible = 0;
 	$totDisponibleDa = 0;
 	
-	$worksheet->setCellValue('A'.(5),'Bom No.');
-	$worksheet->setCellValue('B'.(5),$param['filter_hwartcod']);
-	$start=$y;
+	$worksheet->setCellValue('A'.(6),'Bom No.');
+	$worksheet->setCellValue('B'.(6),$param['filter_hwartcod']);
+	$worksheet->setCellValue('C'.(6),'Packing');
+	$worksheet->setCellValue('D'.(6),$param['filter_hwpacking']);
+	$start=$y + 1;
 	$i=$start;
 				  
 		  foreach ($detalle as $p) {			
 			  
 			  if ($i==$start) {
 				  
-				$data[1] = $this->language->get('column_tgfecha');
-				$data[2] = $this->language->get('column_tgcarril');
-				$data[3] = $this->language->get('column_tgancho');
-				$data[4] = $this->language->get('column_tglargo');
-				$data[5] = $this->language->get('column_porcarril');
+				$data[1] = $this->language->get('column_hwdespacho');
+				$data[2] = $this->language->get('column_hwfdespacho');
+				$data[3] = $this->language->get('column_hwmrno');
+				$data[4] = $this->language->get('column_hwfechasol');
+				$data[5] = $this->language->get('column_sitnom');
+				$data[6] = $this->language->get('column_hwpacking');
+				$data[7] = $this->language->get('column_hwcaja');
+				$data[8] = $this->language->get('column_hwartcod');
+				$data[9] = $this->language->get('column_hwartdesc');
+				$data[10] = $this->language->get('column_hwserie');
+				$data[11] = $this->language->get('column_hwseriepredefinida');
+				$data[12] = $this->language->get('column_hwserieactivofijo');
+				$data[13] = $this->language->get('column_hwcantdesp');
+				$data[14] = $this->language->get('column_hwunimed');
 				
-				$this->cellColor($workbook,'A'.$start.':E'.$start, 'ffbb33');	
+				$this->cellColor($workbook,'A'.$start.':N'.$start, 'ffbb33');	
 				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
   
 				$i += 1;	
 			  }
   
-			  $data[1] = $p['TGFECHA'];
-			  $data[2] = $p['TGCARRIL'];
-			  $data[3] = $p['TGANCHO'];
-			  $data[4] = $p['TGLARGO'];
-			  $data[5] = $p['PORCARRIL'];
+			  $data[1] = $p['HWDESPACHO'];
+			  $data[2] = $p['HWFDESPACHO'];
+			  $data[3] = $p['HWMRNO'];
+			  $data[4] = $p['HWFECHASOL'];
+			  $data[5] = $p['SITNOM'];
+			  $data[6] = $p['HWPACKING'];
+			  $data[7] = $p['HWCAJA'];
+			  $data[8] = $p['HWARTCOD'];
+			  $data[9] = $p['HWARTDESC'];
+			  $data[10] = $p['HWSERIE'];
+			  $data[11] = $p['HWSERIEPREDEFINIDA'];
+			  $data[12] = $p['HWSERIEACTIVOFIJO'];
+			  $data[13] = $p['HWCANTDESP'];
+			  $data[14] = $p['HWUNIMED'];
 			  
 			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
 			  
 			  $i += 1;
 			  $j = 0;
-			  $totExistencia = $totExistencia + $p['PORCARRIL'];
 		  	}
-		  	$worksheet->setCellValue('B'.$i,'Total Diario Ocupaciones');
-			$worksheet->setCellValue('E'.$i,$totExistencia);
-
-			$this->cellColor($workbook,'B'.$i.':B'.$i, 'bdbdbd');
-			$this->cellColor($workbook,'E'.$i.':E'.$i, 'bdbdbd');	
-			
 }
 
 function generarReporte($workbook,$y,$data) {

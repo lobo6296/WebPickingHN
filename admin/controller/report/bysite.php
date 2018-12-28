@@ -1,5 +1,5 @@
 <?php
-class ControllerReportbysite extends Controller {
+class ControllerReportbydata extends Controller {
 	
 	public function download() {
 		$this->load->model('tool/export');
@@ -17,6 +17,13 @@ class ControllerReportbysite extends Controller {
 		} else {
 			$filter_date_end = null;
 		}
+
+		if (isset($this->request->post['hwpacking'])) {
+			$filter_hwpacking = trim($this->request->post['hwpacking']," ");
+		} else {
+			$filter_hwpacking = null;
+		}
+
         if (isset($this->request->post['hwartcod'])) {
 			$filter_hwartcod = trim($this->request->post['hwartcod']," ");
 		} else {
@@ -25,19 +32,20 @@ class ControllerReportbysite extends Controller {
 		
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
-            'filter_date_end'	=> $filter_date_end,
+			'filter_date_end'	=> $filter_date_end,
+			'filter_hwpacking'  => $filter_hwpacking,
 			'filter_hwartcod'   => $filter_hwartcod,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'tipo'              => $this->request->post['tipo'],
-			'titulo'            => 'Stock Report by Averange Occupancy',
-			'reporte'           => 'bysite'
+			'titulo'            => 'Deliveries by date',
+			'reporte'           => 'bydata'
 		);
 		
 		  $this->model_tool_export->download($filter_data);	
 		 
 		  $url = '';
                                                      
-		 $this->response->redirect($this->url->link('report/bysite', 'token=' . $this->session->data['token'] . $url, true));
+		 $this->response->redirect($this->url->link('report/bydata', 'token=' . $this->session->data['token'] . $url, true));
 		}
 		$this->index();		
 	}
@@ -47,7 +55,7 @@ class ControllerReportbysite extends Controller {
      $this->load->model('tool/pdf');
 	 
 	 $filter_data = array (
-	   'reporte' => 'bysite'
+	   'reporte' => 'bydata'
 	 );
      $this->model_tool_pdf->generarReporte($filter_data);
  
@@ -55,7 +63,7 @@ class ControllerReportbysite extends Controller {
 	}
 	
 	public function index() {
-		$this->load->language('report/bysite');
+		$this->load->language('report/bydata');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -70,7 +78,13 @@ class ControllerReportbysite extends Controller {
 		} else {
 			$filter_date_end = date('Y-m-d');
         }
-        
+		
+		if (isset($this->request->get['filter_hwpacking'])) {
+			$filter_hwpacking = trim($this->request->get['filter_hwpacking']," ");
+		} else {
+			$filter_hwpacking = null;
+		}
+
         if (isset($this->request->get['filter_hwartcod'])) {
 			$filter_hwartcod = trim($this->request->get['filter_hwartcod']," ");
 		} else {
@@ -91,13 +105,17 @@ class ControllerReportbysite extends Controller {
 
 		if (isset($this->request->get['filter_date_end'])) {
 			$url .= '&filter_date_end=' . $this->request->get['filter_date_end'];
-        }
+		}
+		
+		if (isset($this->request->get['filter_hwpacking'])) {
+			$url .= '&filter_hwpacking=' . $this->request->get['filter_hwpacking'];
+		}
         
         if (isset($this->request->get['filter_hwartcod'])) {
 			$url .= '&filter_hwartcod=' . $this->request->get['filter_hwartcod'];
 		}
 		
-		$data['pdf'] = $this->url->link('report/bysite/pdf', 'token=' . $this->session->data['token'].$url, 'SSL');
+		$data['pdf'] = $this->url->link('report/bydata/pdf', 'token=' . $this->session->data['token'].$url, 'SSL');
 		
 		if (isset($this->request->get['page'])) {
 			$url .= '&page=' . $this->request->get['page'];
@@ -112,7 +130,7 @@ class ControllerReportbysite extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('report/bysite', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('report/bydata', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
 		$this->load->model('report/tigo');
@@ -121,27 +139,38 @@ class ControllerReportbysite extends Controller {
 
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
-            'filter_date_end'	=> $filter_date_end,
+			'filter_date_end'	=> $filter_date_end,
+			'filter_hwpacking'  => $filter_hwpacking,
             'filter_hwartcod'   => $filter_hwartcod,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'start'             => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit'             => $this->config->get('config_limit_admin')
 		);
 
-		$stock_total = $this->model_report_tigo->getTotalBysite($filter_data);
+		$stock_total = $this->model_report_tigo->getTotalBydata($filter_data);
 
-		$results = $this->model_report_tigo->getBysite($filter_data);
+		$results = $this->model_report_tigo->getBydata($filter_data);
 
 		foreach ($results as $result) {
 			$data['stock'][] = array(
-				'hwartcod'		=> $result['HWARTCOD'],
-				'hwartdesc'     => $result['HWARTDESC'],
-				'hwcaja'    	=> $result['HWCAJA'],
-				'hwpacking'   	=> $result['HWPACKING'],
-				'hwserie' 		=> $result['HWSERIE'],
-				'hwfechaing'    => $result['HWFECHAING'],
-				'existencia'    => $result['EXISTENCIA'],
-				'disponible'    => $result['DISPONIBLE']
+				'hwdespacho'			=> $result['HWDESPACHO'],
+				'hwfdespacho'     		=> $result['HWFDESPACHO'],
+				'hwmrno'    			=> $result['HWMRNO'],
+				'hwfechasol'   			=> $result['HWFECHASOL'],
+				'sitnom' 				=> $result['SITNOM'],
+				'hwpacking'    			=> $result['HWPACKING'],
+				'hwpo'    				=> $result['HWPO'],
+				'hwartcod'    			=> $result['HWARTCOD'],
+				'hwartdesc'				=> $result['HWARTDESC'],
+				'hwserie'     			=> $result['HWSERIE'],
+				'hwseriepredefinida'	=> $result['HWSERIEPREDEFINIDA'],
+				'hwserieactivofijo'   	=> $result['HWSERIEACTIVOFIJO'],
+				'hwcantdesp' 			=> $result['HWCANTDESP'],
+				'hwunimed'    			=> $result['HWUNIMED'],
+				'mrhw_estado'    		=> $result['MRHW_ESTADO'],
+				'tigosubcta_descrip'    => $result['TIGOSUBCTA_DESCRIP'],
+				'hwentrego'    			=> $result['HWENTREGO'],
+				'hwrecibio'    			=> $result['HWRECIBIO']
 			);
 		}
 
@@ -152,23 +181,24 @@ class ControllerReportbysite extends Controller {
 		$data['text_confirm']         = $this->language->get('text_confirm');
 		$data['text_all_status']      = $this->language->get('text_all_status');
 
-		$data['column_code']          = $this->language->get('column_code');
-		$data['column_hwpacking']     = $this->language->get('column_hwpacking');
-		$dsys['column_hwbodega']      = $this->language->get('column_hwbodega');
-		$data['column_hwcontract']    = $this->language->get('column_hwcontract');
-		$data['column_fechaing']   	  = $this->language->get('column_fechaing');
-		$data['column_daysinventory'] = $this->language->get('column_daysinventory');
-		$data['column_hwestado']      = $this->language->get('column_hwestado');
-		$data['column_hwcaja']        = $this->language->get('column_hwcaja');
-		$data['column_hwartcod']      = $this->language->get('column_hwartcod');
-		$data['column_hwartdesc']     = $this->language->get('column_hwartdesc');
-		$data['column_hwserie']       = $this->language->get('column_hwserie');
-		$data['column_hwunimed']      = $this->language->get('column_hwunimed');
-		$data['column_existencia']    = $this->language->get('column_existencia');
-		$data['column_solicitado']    = $this->language->get('column_solicitado');
-		$data['column_disponible']    = $this->language->get('column_disponible');
-		$data['column_damaged']       = $this->language->get('column_damaged');
-		$data['column_location']      = $this->language->get('column_location');
+		$data['column_hwdespacho']          = $this->language->get('column_hwdespacho');
+		$data['column_hwfdespacho']     	= $this->language->get('column_hwfdespacho');		
+		$data['column_hwfechasol']    		= $this->language->get('column_hwfechasol');
+		$data['column_sitnom']   	  		= $this->language->get('column_sitnom');
+		$data['column_hwpacking'] 			= $this->language->get('column_hwpacking');
+		$data['column_hwpo'] 				= $this->language->get('column_hwpo');
+		$data['column_hwmrno'] 				= $this->language->get('column_hwmrno');
+		$data['column_hwartcod']      		= $this->language->get('column_hwartcod');
+		$data['column_hwartdesc']        	= $this->language->get('column_hwartdesc');
+		$data['column_hwserie']      		= $this->language->get('column_hwserie');
+		$data['column_hwseriepredefinida']	= $this->language->get('column_hwseriepredefinida');
+		$data['column_hwserieactivofijo']   = $this->language->get('column_hwserieactivofijo');
+		$data['column_hwcantdesp']      	= $this->language->get('column_hwcantdesp');
+		$data['column_hwunimed']    		= $this->language->get('column_hwunimed');
+		$data['column_mrhw_estado']    		= $this->language->get('column_mrhw_estado');
+		$data['column_tigosubcta_descrip']  = $this->language->get('column_tigosubcta_descrip');
+		$data['column_hwentrego']       	= $this->language->get('column_hwentrego');
+		$data['column_hwrecibio']      		= $this->language->get('column_hwrecibio');
 		
 		$data['entry_date_start']     = $this->language->get('entry_date_start');
 		$data['entry_date_end']       = $this->language->get('entry_date_end');
@@ -180,9 +210,9 @@ class ControllerReportbysite extends Controller {
 		$data['button_excel']         = $this->language->get('button_excel');
 		$data['button_pdf']           = $this->language->get('button_pdf');
 		
-		$data['export'] = $this->url->link('report/bysite/download', 'token=' . $this->session->data['token'], true);
+		$data['export'] = $this->url->link('report/bydata/download', 'token=' . $this->session->data['token'], true);
 		
-		$data['excel'] = $this->url->link('report/bysite/excel', 'token=' . $this->session->data['token'], 'SSL');
+		$data['excel'] = $this->url->link('report/bydata/excel', 'token=' . $this->session->data['token'], 'SSL');
 		
 
 		$data['token'] = $this->session->data['token'];
@@ -223,7 +253,7 @@ class ControllerReportbysite extends Controller {
 		$pagination->total = $stock_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('report/bysite', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+		$pagination->url = $this->url->link('report/bydata', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
 		$data['pagination'] = $pagination->render();
 
@@ -241,10 +271,10 @@ class ControllerReportbysite extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
         /*
 		if ($pdf) {
-          $this->response->setOutput(pdf($this->load->view('report/bysite.tpl', $data),$data));
+          $this->response->setOutput(pdf($this->load->view('report/bydata.tpl', $data),$data));
 		} else {
 		*/	
-		  $this->response->setOutput($this->load->view('report/bysite.tpl', $data));
+		  $this->response->setOutput($this->load->view('report/bydata.tpl', $data));
 		/*
 		}
 		*/

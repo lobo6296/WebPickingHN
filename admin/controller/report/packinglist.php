@@ -37,7 +37,7 @@ class ControllerReportpackinglist extends Controller {
 			'filter_hwartcod'   => $filter_hwartcod,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'tipo'              => $this->request->post['tipo'],
-			'titulo'            => 'Deliveries by date',
+			'titulo'            => 'Deliveries By Packing List',
 			'reporte'           => 'packinglist'
 		);
 		
@@ -182,7 +182,7 @@ class ControllerReportpackinglist extends Controller {
 		$data['column_hwfechasol']    		= $this->language->get('column_hwfechasol');
 		$data['column_sitnom']   	  		= $this->language->get('column_sitnom');
 		$data['column_hwpacking'] 			= $this->language->get('column_hwpacking');
-		$data['column_hwpo'] 				= $this->language->get('column_hwpo');
+		$data['column_hwcaja'] 				= $this->language->get('column_hwcaja');
 		$data['column_hwmrno'] 				= $this->language->get('column_hwmrno');
 		$data['column_hwartcod']      		= $this->language->get('column_hwartcod');
 		$data['column_hwartdesc']        	= $this->language->get('column_hwartdesc');

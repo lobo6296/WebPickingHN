@@ -553,7 +553,7 @@ public function getPackinglist($data){
 				,to_char(e.HWFECHASOL,'dd/mm/yyyy hh24:mi:ss') as HWFECHASOL
 				,f.SITNOM
 				,A.HWPACKING
-				,C.HWPO
+				,A.HWCAJA
 				,G.HWARTCOD
 				,h.HWARTDESC
 				,G.HWSERIE
@@ -584,7 +584,7 @@ public function getPackinglist($data){
 				,HWFECHASOL
 				,SITNOM
 				,HWPACKING
-				,HWPO
+				,HWCAJA
 				,HWARTCOD
 				,HWARTDESC
 				,HWSERIE
@@ -627,7 +627,7 @@ public function getPackinglist($data){
 		$sql .= " order by HWDESPACHO,HWARTCOD,HWMRNO";		
 
 		$query = $db->query($sql);
-	//	echo $sql;
+	//echo $sql;
 	
 	//print_r($sql);
 	//exit(0);
@@ -1870,7 +1870,7 @@ public function getStockReportPackinglistExcel($data){
 			,to_char(e.HWFECHASOL,'dd/mm/yyyy hh24:mi:ss') as HWFECHASOL
 			,f.SITNOM
 			,A.HWPACKING
-			,C.HWPO
+			,A.HWCAJA
 			,G.HWARTCOD
 			,h.HWARTDESC
 			,G.HWSERIE
@@ -1897,7 +1897,7 @@ public function getStockReportPackinglistExcel($data){
 			,HWFECHASOL
 			,SITNOM
 			,HWPACKING
-			,HWPO
+			,HWCAJA
 			,HWARTCOD
 			,HWARTDESC
 			,HWSERIE
@@ -1925,6 +1925,8 @@ public function getStockReportPackinglistExcel($data){
 		$sql .= " order by HWDESPACHO,HWARTCOD,HWMRNO";		
 
 		$query = $db->query($sql);
+
+		return $query->rows;
 }
 
 public function getStockReportBysiteExcel($data){
