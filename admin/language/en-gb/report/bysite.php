@@ -1,9 +1,9 @@
 <?php
 // Heading
-$_['heading_title']       = '07. Deliveries by date';
+$_['heading_title']       = '09. Deliveries by site';
 
 // Text
-$_['text_list']            = 'Deliveries by date';
+$_['text_list']            = 'Deliveries by site';
 $_['text_all_sitios']      = '-- Seleccione --';
 
 // Column
@@ -16,9 +16,9 @@ $_['column_hwentrego']          = 'Entrego';
 $_['column_hwartcod']           = 'Articulo';
 $_['column_hwartdesc']          = 'Descripcion';
 $_['column_hwunimed']           = 'Uni. Med';
-$_['column_hwfechasol']         = 'Fecha Solicitud ';
+$_['column_hwcontract']         = 'Contract No.';
 $_['column_sitnom']             = 'Sitio';
-$_['column_hwpo']               = 'Orden de compra';
+$_['column_hwcaja']             = 'Caja / Box No.';
 $_['column_hwmrno']             = 'MR NO.';
 $_['column_mrhw_estado']        = 'Estado';
 $_['column_tigosubcta_descrip'] = 'Deposito (Sub Cuenta)';

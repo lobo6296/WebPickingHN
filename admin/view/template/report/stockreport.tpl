@@ -21,12 +21,12 @@
   </div>
 		
   <form action="<?php echo $export; ?>" method="post" enctype="multipart/form-data" id="export" class="form-horizontal">
-  <input type="hidden" name="tipo" id="tipo">
-  <input type="hidden" name="date_start" value="<?php echo $filter_date_start;?>">
-  <input type="hidden" name="date_end" value="<?php echo $filter_date_end;?>">
-  <input type="hidden" name="hwpacking" value="<?php echo $filter_hwpacking;?>">
-  <input type="hidden" name="hwartcod" value="<?php echo $filter_hwartcod;?>">
-   <input type="hidden" name="sitio" value="<?php echo $filter_sitio;?>">
+    <input type="hidden" name="tipo" id="tipo">
+    <input type="hidden" name="date_start" value="<?php echo $filter_date_start;?>">
+    <input type="hidden" name="date_end" value="<?php echo $filter_date_end;?>">
+    <input type="hidden" name="hwpacking" value="<?php echo $filter_hwpacking;?>">
+    <input type="hidden" name="hwartcod" value="<?php echo $filter_hwartcod;?>">
+    <input type="hidden" name="sitio" value="<?php echo $filter_sitio;?>">
   </form>
   <div class="container-fluid">
     <div class="panel panel-default">
@@ -160,7 +160,7 @@ $('#button-filter').on('click', function() {
 	if (filter_sitio) {
 		url += '&filter_sitio=' + encodeURIComponent(filter_sitio);
 	}
-	
+	 
 	var filter_hwpacking = $('input[name=\'filter_hwpacking\']').val();
 	
 	if (filter_hwpacking) {
