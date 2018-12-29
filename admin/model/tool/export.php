@@ -735,6 +735,75 @@ function bysite($workbook,$y,$param) {
 		  	}
 }
 
+function bysiteindetailthemovement($workbook,$y,$param) {
+	
+	$this->load->model('report/tigo');
+	$this->load->language('report/bysiteindetailthemovement'); 
+	
+	$worksheet = $workbook->getActiveSheet();
+	
+	$detalle = $this->model_report_tigo->getStockReportBysiteindetailthemovementExcel($param); 
+	$data=null;
+  
+	$j=0;
+	$totExistencia = 0;
+	$totDisponible = 0;
+	$totDisponibleDa = 0;
+	
+	$worksheet->setCellValue('A'.(6),'Bom No.');
+	$worksheet->setCellValue('B'.(6),$param['filter_hwartcod']);
+	$worksheet->setCellValue('C'.(6),'Packing');
+	$worksheet->setCellValue('D'.(6),$param['filter_hwpacking']);
+	$start=$y + 1;
+	$i=$start;
+				  
+		  foreach ($detalle as $p) {			
+			  
+			  if ($i==$start) {
+				  
+				$data[1] = $this->language->get('column_hwdespacho');
+				$data[2] = $this->language->get('column_hwfdespacho');
+				$data[3] = $this->language->get('column_hwmrno');
+				$data[4] = $this->language->get('column_sitnom');
+				$data[5] = $this->language->get('column_hwpacking');
+				$data[6] = $this->language->get('column_hwcontract');
+				$data[7] = $this->language->get('column_hwcaja');
+				$data[8] = $this->language->get('column_hwartcod');
+				$data[9] = $this->language->get('column_hwartdesc');
+				$data[10] = $this->language->get('column_hwserie');
+				$data[11] = $this->language->get('column_hwseriepredefinida');
+				$data[12] = $this->language->get('column_hwserieactivofijo');
+				$data[13] = $this->language->get('column_hwcantdesp');
+				$data[14] = $this->language->get('column_hwunimed');
+				
+				$this->cellColor($workbook,'A'.$start.':N'.$start, 'ffbb33');	
+				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+  
+				$i += 1;	
+			  }
+  
+			  $data[1] = $p['HWDESPACHO'];
+			  $data[2] = $p['HWFDESPACHO'];
+			  $data[3] = $p['HWMRNO'];
+			  $data[4] = $p['SITNOM'];
+			  $data[5] = $p['HWPACKING'];
+			  $data[6] = $p['HWCONTRACT'];
+			  $data[7] = $p['HWCAJA'];
+			  $data[8] = $p['HWARTCOD'];
+			  $data[9] = $p['HWARTDESC'];
+			  $data[10] = $p['HWSERIE'];
+			  $data[11] = $p['HWSERIEPREDEFINIDA'];
+			  $data[12] = $p['HWSERIEACTIVOFIJO'];
+			  $data[13] = $p['HWCANTDESP'];
+			  $data[14] = $p['HWUNIMED'];
+			  
+			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+			  
+			  $i += 1;
+			  $j = 0;
+		  	}
+}
+
 function generarReporte($workbook,$y,$data) {
 	$util = New Util();
 		

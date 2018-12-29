@@ -1,6 +1,6 @@
 <?php
 class ControllerReportinbounds extends Controller {
-	
+	 
 	public function download() {
 		$this->load->model('tool/export');
 
@@ -17,16 +17,16 @@ class ControllerReportinbounds extends Controller {
 		} else {
 			$filter_date_end = null;
 		}
-        if (isset($this->request->post['hwartcod'])) {
-			$filter_hwartcod = trim($this->request->post['hwartcod']," ");
+        if (isset($this->request->post['hwpacking'])) {
+			$filter_hwpacking = trim($this->request->post['hwpacking']," ");
 		} else {
-			$filter_hwartcod = null;
+			$filter_hwpacking = null;
 		}
 		
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
             'filter_date_end'	=> $filter_date_end,
-			'filter_hwartcod'   => $filter_hwartcod,
+			'filter_hwpacking'   => $filter_hwpacking,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'tipo'              => $this->request->post['tipo'],
 			'titulo'            => 'Stock Report by Averange Occupancy',
@@ -71,10 +71,10 @@ class ControllerReportinbounds extends Controller {
 			$filter_date_end = date('Y-m-d');
         }
         
-        if (isset($this->request->get['filter_hwartcod'])) {
-			$filter_hwartcod = trim($this->request->get['filter_hwartcod']," ");
+        if (isset($this->request->get['filter_hwpacking'])) {
+			$filter_hwpacking = trim($this->request->get['filter_hwpacking']," ");
 		} else {
-			$filter_hwartcod = null;
+			$filter_hwpacking = null;
 		}
 		
 		if (isset($this->request->get['page'])) {
@@ -93,8 +93,8 @@ class ControllerReportinbounds extends Controller {
 			$url .= '&filter_date_end=' . $this->request->get['filter_date_end'];
         }
         
-        if (isset($this->request->get['filter_hwartcod'])) {
-			$url .= '&filter_hwartcod=' . $this->request->get['filter_hwartcod'];
+        if (isset($this->request->get['filter_hwpacking'])) {
+			$url .= '&filter_hwpacking=' . $this->request->get['filter_hwpacking'];
 		}
 		
 		$data['pdf'] = $this->url->link('report/inbounds/pdf', 'token=' . $this->session->data['token'].$url, 'SSL');
@@ -122,7 +122,7 @@ class ControllerReportinbounds extends Controller {
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
             'filter_date_end'	=> $filter_date_end,
-            'filter_hwartcod'   => $filter_hwartcod,
+            'filter_hwpacking'   => $filter_hwpacking,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'start'             => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit'             => $this->config->get('config_limit_admin')
@@ -134,14 +134,12 @@ class ControllerReportinbounds extends Controller {
 
 		foreach ($results as $result) {
 			$data['stock'][] = array(
-				'hwartcod'		=> $result['HWARTCOD'],
-				'hwartdesc'     => $result['HWARTDESC'],
-				'hwcaja'    	=> $result['HWCAJA'],
-				'hwpacking'   	=> $result['HWPACKING'],
-				'hwserie' 		=> $result['HWSERIE'],
-				'hwfechaing'    => $result['HWFECHAING'],
-				'existencia'    => $result['EXISTENCIA'],
-				'disponible'    => $result['DISPONIBLE']
+				'hwpacking'		=> $result['HWPACKING'],
+				'hwcontract'     => $result['HWCONTRACT'],
+				'hwfactura'    	=> $result['HWFACTURA'],
+				'hwdeliverynotice'   	=> $result['HWDELIVERYNOTICE'],
+				'hwpo' 		=> $result['HWPO'],
+				'hwfechaing'    => $result['HWFECHAING']
 			);
 		}
 
