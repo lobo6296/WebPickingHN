@@ -21,10 +21,11 @@
   </div>
 		
   <form action="<?php echo $export; ?>" method="post" enctype="multipart/form-data" id="export" class="form-horizontal">
-  <input type="hidden" name="tipo" id="tipo">
-  <input type="hidden" name="date_start" value="<?php echo $filter_date_start;?>">
-  <input type="hidden" name="date_end" value="<?php echo $filter_date_end;?>">
-  <input type="hidden" name="hwartcod" value="<?php echo $filter_hwartcod;?>">
+    <input type="hidden" name="tipo" id="tipo">
+    <input type="hidden" name="date_start" value="<?php echo $filter_date_start;?>">
+    <input type="hidden" name="date_end" value="<?php echo $filter_date_end;?>">
+    <input type="hidden" name="sitio" value="<?php echo $filter_sitio;?>">
+    <input type="hidden" name="hwpacking" value="<?php echo $filter_hwpacking;?>">
   </form>
   <div class="container-fluid">
     <div class="panel panel-default">
@@ -37,9 +38,22 @@
 		  
             <div class="col-sm-6">			  
               <div class="form-group">
-                <label class="control-label" for="input-hwartcod"><?php echo $entry_hwartcod; ?></label>
-                <input type="text" name="filter_hwartcod" value="<?php echo $filter_hwartcod; ?>" placeholder="<?php echo $entry_hwartcod; ?>" id="input-hwartcod" class="form-control" />
-              </div>	
+                <label class="control-label" for="input-hwpacking"><?php echo $entry_hwpacking; ?></label>
+                <input type="text" name="filter_hwpacking" value="<?php echo $filter_hwpacking; ?>" placeholder="<?php echo $entry_hwpacking; ?>" id="input-hwpacking" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="input-sitio"><?php echo $entry_sitid; ?></label>
+                <select name="filter_sitio" id="input-sitio" class="form-control">
+                  <option value="0"><?php echo $text_all_sitios; ?></option>
+                  <?php foreach ($sitios as $sitio) { ?>
+                  <?php if ($sitio['SITID'] == $filter_sitio) { ?>
+                  <option value="<?php echo $sitio['SITID']; ?>" selected="selected"><?php echo $sitio['SITNOM']; ?></option>
+                  <?php } else { ?>
+                  <option value="<?php echo $sitio['SITID']; ?>"><?php echo $sitio['SITNOM']; ?></option>
+                  <?php } ?>
+                  <?php } ?>
+                </select>
+              </div>		  	
             </div>		  
             <div class="col-sm-6">
               <div class="form-group">
@@ -69,14 +83,10 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <td class="text-right"><?php echo $column_hwartcod; ?></td>
-                <td class="text-right"><?php echo $column_hwartdesc; ?></td>
-                <td class="text-right"><?php echo $column_hwcaja; ?></td>
-                <td class="text-left"><?php echo $column_hwpacking; ?></td>
-				        <td class="text-left"><?php echo $column_hwserie; ?></td>
-                <td class="text-right"><?php echo $column_fechaing; ?></td>
-                <td class="text-right"><?php echo $column_existencia; ?></td>
-                <td class="text-right"><?php echo $column_disponible; ?></td>
+                <td class="text-right"><?php echo $column_hwpacking; ?></td>
+                <td class="text-right"><?php echo $column_hwfechaing; ?></td>
+                <td class="text-right"><?php echo $column_sitnom; ?></td>
+                <td class="text-left"><?php echo $column_hwtecnico; ?></td>
 				</tr>
             </thead>
 	
@@ -84,14 +94,10 @@
               <?php if ($stock) { ?>
               <?php foreach ($stock as $s) { ?>
               <tr>
-                <td class="text-left"><?php echo $s['hwartcod']; ?></td>
-                <td class="text-left"><?php echo $s['hwartdesc']; ?></td>
-                <td class="text-right"><?php echo $s['hwcaja']; ?></td>
-                <td class="text-left"><?php echo $s['hwpacking']; ?></td>             
-				        <td class="text-left"><?php echo $s['hwserie']; ?></td>
-                <td class="text-right"><?php echo $s['hwfechaing']; ?></td>
-                <td class="text-right"><?php echo $s['existencia']; ?></td>
-                <td class="text-right"><?php echo $s['disponible']; ?></td>
+                <td class="text-left"><?php echo $s['hwpacking']; ?></td>
+                <td class="text-left"><?php echo $s['hwfechaing']; ?></td>
+                <td class="text-right"><?php echo $s['sitnom']; ?></td>
+                <td class="text-left"><?php echo $s['hwtecnico']; ?></td>
 				</tr>
               <?php } ?>
               <?php } else { ?>
@@ -111,7 +117,7 @@
   </div>
   <script type="text/javascript"><!--
 $('#button-filter').on('click', function() {
-	url = 'index.php?route=report/damaged&token=<?php echo $token; ?>';
+	url = 'index.php?route=report/returns&token=<?php echo $token; ?>';
 	
 	var filter_date_start = $('input[name=\'filter_date_start\']').val();
 	
@@ -125,11 +131,17 @@ $('#button-filter').on('click', function() {
 		url += '&filter_date_end=' + encodeURIComponent(filter_date_end);
 	}
 	
-	var filter_hwartcod = $('input[name=\'filter_hwartcod\']').val();
+	var filter_sitio = $('select[name=\'filter_sitio\']').val();
+	
+	if (filter_sitio) {
+		url += '&filter_sitio=' + encodeURIComponent(filter_sitio);
+	}
 
-	if (filter_hwartcod) {
-		url += '&filter_hwartcod=' + encodeURIComponent(filter_hwartcod);
-	}	
+  var filter_hwpacking = $('input[name=\'filter_hwpacking\']').val();
+	
+	if (filter_hwpacking) {
+		url += '&filter_hwpacking=' + encodeURIComponent(filter_hwpacking);
+	}
 	
 	location = url;
 });

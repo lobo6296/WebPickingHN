@@ -1,5 +1,5 @@
 <?php
-class ControllerReportreturns extends Controller {
+class ControllerReportReturns extends Controller {
 	
 	public function download() {
 		$this->load->model('tool/export');
@@ -17,19 +17,27 @@ class ControllerReportreturns extends Controller {
 		} else {
 			$filter_date_end = null;
 		}
-        if (isset($this->request->post['hwartcod'])) {
-			$filter_hwartcod = trim($this->request->post['hwartcod']," ");
+
+		if (isset($this->request->post['sitio'])) {
+			$filter_sitio = trim($this->request->post['sitio']," ");
 		} else {
-			$filter_hwartcod = null;
+			$filter_sitio = null;
+		}
+
+		if (isset($this->request->post['hwpacking'])) {
+			$filter_hwpacking = trim($this->request->post['hwpacking']," ");
+		} else {
+			$filter_hwpacking = null;
 		}
 		
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
             'filter_date_end'	=> $filter_date_end,
-			'filter_hwartcod'   => $filter_hwartcod,
+			'filter_sitio'  	=> $filter_sitio,
+			'filter_hwpacking'  => $filter_hwpacking,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'tipo'              => $this->request->post['tipo'],
-			'titulo'            => 'Stock Report by Averange Occupancy',
+			'titulo'            => 'Returns',
 			'reporte'           => 'returns'
 		);
 		
@@ -71,10 +79,16 @@ class ControllerReportreturns extends Controller {
 			$filter_date_end = date('Y-m-d');
         }
         
-        if (isset($this->request->get['filter_hwartcod'])) {
-			$filter_hwartcod = trim($this->request->get['filter_hwartcod']," ");
+        if (isset($this->request->get['filter_sitio'])) {
+			$filter_sitio = trim($this->request->get['filter_sitio']," ");
 		} else {
-			$filter_hwartcod = null;
+			$filter_sitio = null;
+		}
+		
+		if (isset($this->request->get['filter_hwpacking'])) {
+			$filter_hwpacking = trim($this->request->get['filter_hwpacking']," ");
+		} else {
+			$filter_hwpacking = null;
 		}
 		
 		if (isset($this->request->get['page'])) {
@@ -93,8 +107,12 @@ class ControllerReportreturns extends Controller {
 			$url .= '&filter_date_end=' . $this->request->get['filter_date_end'];
         }
         
-        if (isset($this->request->get['filter_hwartcod'])) {
-			$url .= '&filter_hwartcod=' . $this->request->get['filter_hwartcod'];
+        if (isset($this->request->get['filter_sitio'])) {
+			$url .= '&filter_sitio=' . $this->request->get['filter_sitio'];
+		}
+		
+		if (isset($this->request->get['filter_hwpacking'])) {
+			$url .= '&filter_hwpacking=' . $this->request->get['filter_hwpacking'];
 		}
 		
 		$data['pdf'] = $this->url->link('report/returns/pdf', 'token=' . $this->session->data['token'].$url, 'SSL');
@@ -121,8 +139,9 @@ class ControllerReportreturns extends Controller {
 
 		$filter_data = array(
 			'filter_date_start'	=> $filter_date_start,
-            'filter_date_end'	=> $filter_date_end,
-            'filter_hwartcod'   => $filter_hwartcod,
+			'filter_date_end'	=> $filter_date_end,
+			'filter_sitio'  	=> $filter_sitio,
+			'filter_hwpacking'  => $filter_hwpacking,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'start'             => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit'             => $this->config->get('config_limit_admin')
@@ -134,14 +153,10 @@ class ControllerReportreturns extends Controller {
 
 		foreach ($results as $result) {
 			$data['stock'][] = array(
-				'hwartcod'		=> $result['HWARTCOD'],
-				'hwartdesc'     => $result['HWARTDESC'],
-				'hwcaja'    	=> $result['HWCAJA'],
-				'hwpacking'   	=> $result['HWPACKING'],
-				'hwserie' 		=> $result['HWSERIE'],
-				'hwfechaing'    => $result['HWFECHAING'],
-				'existencia'    => $result['EXISTENCIA'],
-				'disponible'    => $result['DISPONIBLE']
+				'hwpacking'		=> $result['HWPACKING'],
+				'hwfechaing'     => $result['HWFECHAING'],
+				'sitnom'    	=> $result['SITNOM'],
+				'hwtecnico'   	=> $result['HWTECNICO']
 			);
 		}
 
@@ -152,23 +167,10 @@ class ControllerReportreturns extends Controller {
 		$data['text_confirm']         = $this->language->get('text_confirm');
 		$data['text_all_status']      = $this->language->get('text_all_status');
 
-		$data['column_code']          = $this->language->get('column_code');
-		$data['column_hwpacking']     = $this->language->get('column_hwpacking');
-		$dsys['column_hwbodega']      = $this->language->get('column_hwbodega');
-		$data['column_hwcontract']    = $this->language->get('column_hwcontract');
-		$data['column_fechaing']   	  = $this->language->get('column_fechaing');
-		$data['column_daysinventory'] = $this->language->get('column_daysinventory');
-		$data['column_hwestado']      = $this->language->get('column_hwestado');
-		$data['column_hwcaja']        = $this->language->get('column_hwcaja');
-		$data['column_hwartcod']      = $this->language->get('column_hwartcod');
-		$data['column_hwartdesc']     = $this->language->get('column_hwartdesc');
-		$data['column_hwserie']       = $this->language->get('column_hwserie');
-		$data['column_hwunimed']      = $this->language->get('column_hwunimed');
-		$data['column_existencia']    = $this->language->get('column_existencia');
-		$data['column_solicitado']    = $this->language->get('column_solicitado');
-		$data['column_disponible']    = $this->language->get('column_disponible');
-		$data['column_damaged']       = $this->language->get('column_damaged');
-		$data['column_location']      = $this->language->get('column_location');
+		$data['column_hwpacking']	= $this->language->get('column_hwpacking');
+		$data['column_hwfechaing']	= $this->language->get('column_hwfechaing');
+		$data['column_sitnom']      = $this->language->get('column_sitnom');
+		$data['column_hwtecnico']	= $this->language->get('column_hwtecnico');
 		
 		$data['entry_date_start']     = $this->language->get('entry_date_start');
 		$data['entry_date_end']       = $this->language->get('entry_date_end');

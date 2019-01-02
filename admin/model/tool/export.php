@@ -857,6 +857,204 @@ function inbounds($workbook,$y,$param) {
 		  	}
 }
 
+function outbounds($workbook,$y,$param) {
+	
+	$this->load->model('report/tigo');
+	$this->load->language('report/outbounds'); 
+	
+	$worksheet = $workbook->getActiveSheet();
+	
+	$detalle = $this->model_report_tigo->getStockReportOutboundsExcel($param); 
+	$data=null;
+  
+	$j=0;
+	$totExistencia = 0;
+	$totDisponible = 0;
+	$totDisponibleDa = 0;
+	
+	$worksheet->setCellValue('A'.(6),'Packing');
+	$worksheet->setCellValue('B'.(6),$param['filter_hwpacking']);
+	$start=$y + 1;
+	$i=$start;
+				  
+		  foreach ($detalle as $p) {			
+			  
+			  if ($i==$start) {
+				  
+				$data[1] = $this->language->get('column_rownum');
+				$data[2] = $this->language->get('column_hwmrno');
+				$data[3] = $this->language->get('column_hwfechasol');
+				$data[4] = $this->language->get('column_hwdespacho');
+				$data[5] = $this->language->get('column_hwfdespacho');
+				$data[6] = $this->language->get('column_sitnom');
+								
+				$this->cellColor($workbook,'A'.$start.':G'.$start, 'ffbb33');	
+				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+  
+				$i += 1;	
+			  }
+  
+			  $data[1] = $p['ROWNUM'];
+			  $data[2] = $p['HWMRNO'];
+			  $data[3] = $p['HWFECHASOL'];
+			  $data[4] = $p['HWDESPACHO'];
+			  $data[5] = $p['HWFDESPACHO'];
+			  $data[6] = $p['SITNOM'];
+			  			  
+			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+			  
+			  $i += 1;
+			  $j = 0;
+		  	}
+}
+
+function returns($workbook,$y,$param) {
+	
+	$this->load->model('report/tigo');
+	$this->load->language('report/returns'); 
+	
+	$worksheet = $workbook->getActiveSheet();
+	
+	$detalle = $this->model_report_tigo->getStockReportReturnsExcel($param); 
+	$data=null;
+  
+	$j=0;
+	$totExistencia = 0;
+	$totDisponible = 0;
+	$totDisponibleDa = 0;
+	
+	$worksheet->setCellValue('A'.(6),'Packing');
+	$worksheet->setCellValue('B'.(6),$param['filter_hwpacking']);
+	$start=$y + 1;
+	$i=$start;
+				  
+		  foreach ($detalle as $p) {			
+			  
+			  if ($i==$start) {
+				  
+				$data[1] = $this->language->get('column_rownum');
+				$data[2] = $this->language->get('column_hwpacking');
+				$data[3] = $this->language->get('column_hwfechaing');
+				$data[4] = $this->language->get('column_sitnom');
+				$data[5] = $this->language->get('column_hwtecnico');
+								
+				$this->cellColor($workbook,'A'.$start.':E'.$start, 'ffbb33');	
+				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+  
+				$i += 1;	
+			  }
+  
+			  $data[1] = $p['ROWNUM'];
+			  $data[2] = $p['HWPACKING'];
+			  $data[3] = $p['HWFECHAING'];
+			  $data[4] = $p['SITNOM'];
+			  $data[5] = $p['HWTECNICO'];
+			  			  
+			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+			  
+			  $i += 1;
+			  $j = 0;
+		  	}
+}
+
+function overtime($workbook,$y,$param) {
+	
+	$this->load->model('report/tigo');
+	$this->load->language('report/returns'); 
+	
+	$worksheet = $workbook->getActiveSheet();
+	
+	$detalle = $this->model_report_tigo->getStockReportReturnsExcel($param); 
+	$data=null;
+  
+	$j=0;
+	$totExistencia = 0;
+	$totDisponible = 0;
+	$totDisponibleDa = 0;
+	
+	$worksheet->setCellValue('A'.(6),'Packing');
+	$worksheet->setCellValue('B'.(6),$param['filter_hwpacking']);
+	$start=$y + 1;
+	$i=$start;
+				  
+		  foreach ($detalle as $p) {			
+			  
+			  if ($i==$start) {
+				  
+				$data[1] = $this->language->get('column_rownum');
+				$data[2] = $this->language->get('column_hwpacking');
+				$data[3] = $this->language->get('column_hwfechaing');
+				$data[4] = $this->language->get('column_sitnom');
+				$data[5] = $this->language->get('column_hwtecnico');
+								
+				$this->cellColor($workbook,'A'.$start.':E'.$start, 'ffbb33');	
+				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+  
+				$i += 1;	
+			  }
+  
+			  $data[1] = $p['ROWNUM'];
+			  $data[2] = $p['HWPACKING'];
+			  $data[3] = $p['HWFECHAING'];
+			  $data[4] = $p['SITNOM'];
+			  $data[5] = $p['HWTECNICO'];
+			  			  
+			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+			  
+			  $i += 1;
+			  $j = 0;
+		  	}
+}
+
+function generalstockbycode($workbook,$y,$param) {
+	
+	$this->load->model('report/tigo');
+	$this->load->language('report/returns'); 
+	
+	$worksheet = $workbook->getActiveSheet();
+	
+	$detalle = $this->model_report_tigo->getStockReportReturnsExcel($param); 
+	$data=null;
+  
+	$j=0;
+	$totExistencia = 0;
+	$totDisponible = 0;
+	$totDisponibleDa = 0;
+	
+	$worksheet->setCellValue('A'.(6),'Packing');
+	$worksheet->setCellValue('B'.(6),$param['filter_hwpacking']);
+	$start=$y + 1;
+	$i=$start;
+				  
+		  foreach ($detalle as $p) {			
+			  
+			  if ($i==$start) {
+				  
+				$data[1] = $this->language->get('column_rownum');
+				$data[2] = $this->language->get('column_hwpacking');
+				$data[3] = $this->language->get('column_hwfechaing');
+				$data[4] = $this->language->get('column_sitnom');
+				$data[5] = $this->language->get('column_hwtecnico');
+								
+				$this->cellColor($workbook,'A'.$start.':E'.$start, 'ffbb33');	
+				$this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+  
+				$i += 1;	
+			  }
+  
+			  $data[1] = $p['ROWNUM'];
+			  $data[2] = $p['HWPACKING'];
+			  $data[3] = $p['HWFECHAING'];
+			  $data[4] = $p['SITNOM'];
+			  $data[5] = $p['HWTECNICO'];
+			  			  
+			  $this->setCellRow($worksheet, $i, $data, $this->null_array, $styles );
+			  
+			  $i += 1;
+			  $j = 0;
+		  	}
+}
+
 function generarReporte($workbook,$y,$data) {
 	$util = New Util();
 		
@@ -864,9 +1062,6 @@ function generarReporte($workbook,$y,$data) {
 	$workbook->getActiveSheet()->setCellValue('A2',$this->session->data['tipdesce']);
 	$workbook->getActiveSheet()->setCellValue('A3','DEL: '.$data['filter_date_start'].' al '.$data['filter_date_end']);
 	$workbook->getActiveSheet()->setCellValue('A4','FECHA GENERACIÓN: '.$util->getTime());
-	
-
-	
 	
   if ($data['reporte']=='stockreport') {
     $this->stockreport($workbook,$y,$data);	
