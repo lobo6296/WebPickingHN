@@ -69,12 +69,12 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <td class="text-right"><?php echo $column_hwartcod; ?></td>
-                <td class="text-right"><?php echo $column_hwartdesc; ?></td>
-                <td class="text-right"><?php echo $column_hwcaja; ?></td>
-                <td class="text-left"><?php echo $column_hwpacking; ?></td>
-				        <td class="text-left"><?php echo $column_hwserie; ?></td>
-                <td class="text-right"><?php echo $column_fechaing; ?></td>                
+                <td class="text-right"><?php echo $column_hwpacking; ?></td>
+                <td class="text-right"><?php echo $column_hwcontract; ?></td>
+                <td class="text-right"><?php echo $column_hwfactura; ?></td>
+                <td class="text-left"><?php echo $column_hwdeliverynotice; ?></td>
+				        <td class="text-left"><?php echo $column_hwpo; ?></td>
+                <td class="text-right"><?php echo $column_hwfechaing; ?></td>                
 				</tr>
             </thead>
 	

@@ -901,6 +901,7 @@ public function getInbounds($data){
 			,a.HWDELIVERYNOTICE
 			,A.HWPO
 			,to_char(A.HWFECHAING,'dd/mm/yyyy hh24:mi:ss') as HWFECHAING
+			,ROWNUM
 		,ROW_NUMBER() over (order by a.HWPACKING,a.HWCONTRACT,A.HWPO) R 
 		From TIGO.INGRESOHW a
 		Where 1=1 	
@@ -912,6 +913,7 @@ public function getInbounds($data){
 		,HWDELIVERYNOTICE
 		,HWPO
 		,HWFECHAING
+		,ROWNUM
 		From (". 
 			$sql;
 			if (isset($data['filter_hwpacking'])) {
@@ -2074,6 +2076,42 @@ public function getStockReportBysiteindetailthemovementExcel($data){
 
 public function getStockReportInboundsExcel($data){
 	$db = $this->conectar($this->session->data['conexion']);
+
+	$sql = "Select Trim(a.HWPACKING) as HWPACKING
+			,a.HWCONTRACT
+			,a.HWFACTURA
+			,a.HWDELIVERYNOTICE
+			,A.HWPO
+			,to_char(A.HWFECHAING,'dd/mm/yyyy hh24:mi:ss') as HWFECHAING
+			,ROWNUM
+			,ROW_NUMBER() over (order by a.HWPACKING,a.HWCONTRACT,A.HWPO) R 
+		From TIGO.INGRESOHW a
+		Where 1=1 	
+		And a.TIPCODE = ".$data['filter_tipinv']." ";
+
+	$sql = "Select HWPACKING
+				,HWCONTRACT
+				,HWFACTURA
+				,HWDELIVERYNOTICE
+				,HWPO
+				,HWFECHAING
+				,ROWNUM
+		From (". 
+			$sql;
+			if (isset($data['filter_hwpacking'])) {
+				$sql .= " and a.HWPACKING LIKE '%" . $data['filter_hwpacking'] . "%' ";
+			}
+			if (isset($data['filter_date_start'])&&isset($data['filter_date_end'])) {
+			$sql .= " and a.HWFECHAING between to_date('".$data['filter_date_start']."','yyyy-mm-dd')
+					and to_date('".$data['filter_date_end']."','yyyy-mm-dd')";	
+			}   
+		$sql .= ")";
+		
+		$sql .= " order by HWPACKING,HWCONTRACT,HWPO";		
+
+		$query = $db->query($sql);
+
+		return $query->rows;
 }
 
 public function getStockReportOutboundsExcel($data){

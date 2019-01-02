@@ -29,7 +29,7 @@ class ControllerReportinbounds extends Controller {
 			'filter_hwpacking'   => $filter_hwpacking,
 			'filter_tipinv'     => $this->session->data['tipinv'],
 			'tipo'              => $this->request->post['tipo'],
-			'titulo'            => 'Stock Report by Averange Occupancy',
+			'titulo'            => 'Inbounds',
 			'reporte'           => 'inbounds'
 		);
 		
@@ -134,12 +134,13 @@ class ControllerReportinbounds extends Controller {
 
 		foreach ($results as $result) {
 			$data['stock'][] = array(
-				'hwpacking'		=> $result['HWPACKING'],
-				'hwcontract'     => $result['HWCONTRACT'],
-				'hwfactura'    	=> $result['HWFACTURA'],
-				'hwdeliverynotice'   	=> $result['HWDELIVERYNOTICE'],
-				'hwpo' 		=> $result['HWPO'],
-				'hwfechaing'    => $result['HWFECHAING']
+				'hwpacking'			=> $result['HWPACKING'],
+				'hwcontract'     	=> $result['HWCONTRACT'],
+				'hwfactura'    		=> $result['HWFACTURA'],
+				'hwdeliverynotice'	=> $result['HWDELIVERYNOTICE'],
+				'hwpo' 				=> $result['HWPO'],
+				'hwfechaing'    	=> $result['HWFECHAING'],
+				'rownum'    		=> $result['ROWNUM']
 			);
 		}
 
@@ -150,23 +151,17 @@ class ControllerReportinbounds extends Controller {
 		$data['text_confirm']         = $this->language->get('text_confirm');
 		$data['text_all_status']      = $this->language->get('text_all_status');
 
-		$data['column_code']          = $this->language->get('column_code');
-		$data['column_hwpacking']     = $this->language->get('column_hwpacking');
-		$dsys['column_hwbodega']      = $this->language->get('column_hwbodega');
-		$data['column_hwcontract']    = $this->language->get('column_hwcontract');
-		$data['column_fechaing']   	  = $this->language->get('column_fechaing');
-		$data['column_daysinventory'] = $this->language->get('column_daysinventory');
-		$data['column_hwestado']      = $this->language->get('column_hwestado');
-		$data['column_hwcaja']        = $this->language->get('column_hwcaja');
-		$data['column_hwartcod']      = $this->language->get('column_hwartcod');
-		$data['column_hwartdesc']     = $this->language->get('column_hwartdesc');
-		$data['column_hwserie']       = $this->language->get('column_hwserie');
-		$data['column_hwunimed']      = $this->language->get('column_hwunimed');
-		$data['column_existencia']    = $this->language->get('column_existencia');
-		$data['column_solicitado']    = $this->language->get('column_solicitado');
-		$data['column_disponible']    = $this->language->get('column_disponible');
-		$data['column_damaged']       = $this->language->get('column_damaged');
-		$data['column_location']      = $this->language->get('column_location');
+		$data['column_code']          		= $this->language->get('column_code');
+		$data['column_hwpacking']     		= $this->language->get('column_hwpacking');
+		$dsys['column_inbounddate']      	= $this->language->get('column_inbounddate');
+		$data['column_daysinventory']    	= $this->language->get('column_daysinventory');
+		$data['column_hwcontract']   	  	= $this->language->get('column_hwcontract');
+		$data['column_hwfactura'] 			= $this->language->get('column_hwfactura');
+		$data['column_hwdeliverynotice']	= $this->language->get('column_hwdeliverynotice');
+		$data['column_hwpo']        		= $this->language->get('column_hwpo');
+		$data['column_hwfechaing']      	= $this->language->get('column_hwfechaing');
+		$data['column_rownum']      		= $this->language->get('column_rownum');
+		
 		
 		$data['entry_date_start']     = $this->language->get('entry_date_start');
 		$data['entry_date_end']       = $this->language->get('entry_date_end');
